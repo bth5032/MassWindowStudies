@@ -94,6 +94,25 @@ TChain * getGJetsChain(TString data_set){
 }
 
 //====================================
+// TTBar MC
+//====================================
+TChain * getTTBarMC(TString data_set) {
+  TChain *ch_ttbar = new TChain("t");
+
+  if (data_set.Contains("inclusive")){
+    //Inclusive HT
+    ch_ttbar->Add("/nfs-7/userdata/ZMEToutput/output/ZMETbabies/V08-11-04_ichep/ttbar_dilep_mgmlm*");
+  }
+
+  if (data_set.Contains("SingleLepton")){
+    //HT 100-200 
+    ch_ttbar->Add("/nfs-7/userdata/ZMEToutput/output/ZMETbabies/V08-11-04_ichep/ttbar_1l*");
+  }
+
+  return ch_ttbar;
+}
+
+//====================================
 // Rare Samples
 //====================================
 TChain * getRareChain(TString data_set){

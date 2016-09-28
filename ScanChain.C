@@ -368,7 +368,7 @@ bool hasGoodZ(){
 
   //cout<<__LINE__<<endl;
 
-  if (conf->get("FSBKG") == "true"){ //only true for ttbar estimate
+  /*if (conf->get("FSBKG") == "true"){ //only true for ttbar estimate
     if (! (phys.hyp_type() == 2) ){ //require explicit emu event
       numEvents->Fill(20); 
       //if (printFail) cout<<phys.evt()<<" :Failed not explicit e/mu Z cut, for ttbar only"<<endl;
@@ -384,7 +384,7 @@ bool hasGoodZ(){
         return false; // require explicit same flavor event
     }
     //if (printStats) { cout<<"hyp_type: "<<phys.hyp_type()<<" "; } 
-  }
+  }*/
 
   //cout<<__LINE__<<endl;
 
@@ -397,7 +397,7 @@ bool hasGoodZ(){
 
   //cout<<__LINE__<<endl;
   
-  if( !(phys.dilmass() > 81 && phys.dilmass() < 101) ) {
+  if( !(phys.dilmass() > stod(conf->get("mass_low")) && phys.dilmass() < stod(conf->get("mass_high"))) ) {
     numEvents->Fill(22); 
     //if (printFail) cout<<phys.evt()<<" :Failed Z mass window Z cut"<<endl;
     return false; // on-Z
