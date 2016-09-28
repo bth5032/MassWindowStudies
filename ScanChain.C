@@ -871,6 +871,10 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   numEvents = new TH1I(sampleName+"_numEvents", "Number of events in "+sampleName, 60, 0, 60);
   numEvents->SetDirectory(rootdir);
 
+  TH1D *dilmass = new TH1D(sampleName+"_dilmass", "Dilepton Mass in "+sampleName, 40,71,111);
+  dilmass->SetDirectory(rootdir);
+  dilmass->Sumw2();
+
   //MET Histos
   TH1D *t1met = new TH1D(sampleName+"_type1MET", "Type 1 MET for "+sampleName, 6000,0,6000);
   t1met->SetDirectory(rootdir);
@@ -1203,6 +1207,7 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       nbtags_l->Fill(phys.nBJetLoose(), weight);
       nbtags_t->Fill(phys.nBJetTight(), weight);
       nVert->Fill(phys.nVert(), weight);
+      dilmass->Fill(phys.dilmass(), weight);
       //cout<<__LINE__<<endl;
 
       //cout<<__LINE__<<endl;
@@ -1229,7 +1234,9 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       //if(phys.met_T1CHS_miniAOD_CORE_pt() >= 300){
       //  cout<<"Event: "<<phys.evt()<<" MET: "<<phys.met_T1CHS_miniAOD_CORE_pt()<<" njets: "<<phys.njets()<<" nbtags: "<<phys.nBJetMedium()<<" HT: "<<phys.ht()<<endl;
       //}
-
+      
+      /*
+      
       //Vince's Photon plots
       if (conf->get("signal_region") == "VincePhotonPT" && phys.HLT_Photon165_R9Id90_HE10_IsoM()){
         if (phys.met_T1CHS_miniAOD_CORE_pt() >= 150){
@@ -1286,7 +1293,7 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
           //cout<<__LINE__<<endl;
         }
       }
-    }
+    } */
     // Clean Up
     //cout<<__LINE__<<endl;
     delete tree;
