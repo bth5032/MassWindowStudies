@@ -1314,6 +1314,8 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //Write out histograms to file
   numEvents->Write();
   //cout<<__LINE__<<endl;
+  dilmass->Write();
+  //cout<<__LINE__<<endl;
   numMETFilters->Write();
   //cout<<__LINE__<<endl;
   t1met->Write();
