@@ -2,16 +2,11 @@
 #include "ScanChain.C"
 #include "DefineDatasets.C"
 #include "ConfigParser.C"
-#include "makePtReweightHisto.C"
 
 void runScanChain(ConfigParser* conf){
   cout<<"Using config:"<<endl;
   conf->print();
 
-  if (conf->get("reweight") == "true"){
-    cout<<"Making Reweight Histogram"<<endl;
-    makePtReweightHisto(conf);
-  }
 
   if (conf->get("data") == "true"){
     if (conf->get("zjets") == "true"){
@@ -35,7 +30,7 @@ void runScanChain(ConfigParser* conf){
       ScanChain(getGJetsChain(conf->get("data_set")), "gjets", conf);  
     }
     if (conf->get("ttbar") == "true"){
-      ScanChain(getTTbarMC(conf->get("data_set")), conf->get("data_set"), conf);   
+      ScanChaingit tTTbarMC(conf->get("data_set")), conf->get("data_set"), conf);   
     }
   }
 }
