@@ -2,7 +2,7 @@
 #include <vector>
 
 void DrawPlots(TString sample){
-	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/"
+	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
 
 	vector<TFile*> files;
 	if (sample == "edge"){
