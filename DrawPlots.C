@@ -19,7 +19,7 @@ void DrawPlots(TString sample){
 		exit(1);
 	}
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	TH1D * tt_met_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_type1MET_widebin"))->Clone("tt_met_loose");
 	TH1D * tt_met_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_type1MET_widebin"))->Clone("tt_met_med");
@@ -29,7 +29,7 @@ cout<<"__LINE__"<<endl;
 	TH1D * z_met_med = (TH1D*) ((TH1D*) files[4]->Get("zjets_type1MET_widebin"))->Clone("z_met_med");
 	TH1D * z_met_tight = (TH1D*) ((TH1D*) files[5]->Get("zjets_type1MET_widebin"))->Clone("z_met_tight");
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 
 	z_met_tight->SetLineColor(kRed);
@@ -40,19 +40,19 @@ cout<<"__LINE__"<<endl;
 	tt_met_med->SetLineColor(kBlue);
 	tt_met_loose->SetLineColor(kBlue);
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	TH1D * tt_dilmass_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_dilmass"))->Clone("tt_dilmass_loose");
 	TH1D * tt_dilmass_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_dilmass"))->Clone("tt_dilmass_med");
 	TH1D * tt_dilmass_tight = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_dilmass"))->Clone("tt_dilmass_tight");
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	TH1D * z_dilmass_loose = (TH1D*) ((TH1D*) files[3]->Get("zjets_dilmass"))->Clone("z_dilmass_loose");
 	TH1D * z_dilmass_med = (TH1D*) ((TH1D*) files[4]->Get("zjets_dilmass"))->Clone("z_dilmass_med");
 	TH1D * z_dilmass_tight = (TH1D*) ((TH1D*) files[5]->Get("zjets_dilmass"))->Clone("z_dilmass_tight");	
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	z_dilmass_tight->SetLineColor(kRed);
 	z_dilmass_med->SetLineColor(kRed);
@@ -62,12 +62,12 @@ cout<<"__LINE__"<<endl;
 	tt_dilmass_med->SetLineColor(kBlue);
 	tt_dilmass_loose->SetLineColor(kBlue);
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 //===============================
 //Draw Loose Plots
@@ -80,7 +80,7 @@ cout<<"__LINE__"<<endl;
 	z_met_loose->Draw("HIST");
 	tt_met_loose->Draw("HIST SAME");
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 	
 	TLegend *l1;
 	l1 = new TLegend(0.73, 0.73, 0.88, 0.88);
@@ -93,10 +93,10 @@ cout<<"__LINE__"<<endl;
 	  
 	l1->Draw("same");
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 	c1->SaveAs("loose_MET.png");
 
-cout<<"__LINE__"<<endl;
+cout<<__LINE__<<endl;
 
 }
