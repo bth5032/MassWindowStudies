@@ -140,7 +140,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c1->SaveAs(sample+"_loose_MET.png");
+	c1->SaveAs("plots/"+sample+"_loose_MET.png");
 
 	TCanvas *c2 = new TCanvas("dilmass_loose", "", 2000, 2000);
 	c2->cd();
@@ -169,7 +169,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c2->SaveAs(sample+"_loose_dilmass.png");
+	c2->SaveAs("plots/"+sample+"_loose_dilmass.png");
 
 //cout<<__LINE__<<endl;
 
@@ -205,7 +205,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c3->SaveAs(sample+"_med_MET.png");
+	c3->SaveAs("plots/"+sample+"_med_MET.png");
 
 	TCanvas *c4 = new TCanvas("dilmass_med", "", 2000, 2000);
 	c4->cd();
@@ -234,7 +234,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c4->SaveAs(sample+"_med_dilmass.png");
+	c4->SaveAs("plots/"+sample+"_med_dilmass.png");
 
 //cout<<__LINE__<<endl;
 
@@ -269,7 +269,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c5->SaveAs(sample+"_tight_MET.png");
+	c5->SaveAs("plots/"+sample+"_tight_MET.png");
 
 	TCanvas *c6 = new TCanvas("dilmass_tight", "", 2000, 2000);
 	c6->cd();
@@ -298,7 +298,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	c6->SaveAs(sample+"_tight_dilmass.png");
+	c6->SaveAs("plots/"+sample+"_tight_dilmass.png");
 
 //cout<<__LINE__<<endl;
 
