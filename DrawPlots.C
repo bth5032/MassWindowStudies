@@ -14,8 +14,53 @@ void DrawPlots(TString sample){
 		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_EdgeZ.root"), "READ"));
 		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_EdgeZ.root"), "READ"));
 	}
+	else if (sample=="A_Btag"){
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_A_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_A_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_A_btag.root"), "READ"));
 
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_A_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_A_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_A_btag.root"), "READ"));
+	}
+	else if (sample=="A_Bveto"){
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_A_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_A_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_A_bveto.root"), "READ"));
+
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_A_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_A_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_A_bveto.root"), "READ"));
+	}
+	else if (sample=="B_Btag"){
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_B_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_B_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_B_btag.root"), "READ"));
+
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_B_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_B_btag.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_B_btag.root"), "READ"));
+	}
+	else if (sample=="B_Bveto"){
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_B_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_B_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_B_bveto.root"), "READ"));
+
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_B_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_B_bveto.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_B_bveto.root"), "READ"));
+	}
+	else if (sample=="ATLAS"){
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_ATLAS.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_ATLAS.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_ATLAS.root"), "READ"));
+
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_ATLAS.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_ATLAS.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_ATLAS.root"), "READ"));
+	}
 	else{
+		cout<<"Unrecognized sample: "<<sample<<endl;
 		exit(1);
 	}
 
