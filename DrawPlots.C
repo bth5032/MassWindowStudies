@@ -64,17 +64,17 @@ cout<<__LINE__<<endl;
 
 cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
-	gStyle->SetOptStat(kFALSE);
-
-cout<<__LINE__<<endl;
-
 //===============================
 //Draw Loose Plots
 //===============================
 
 	TCanvas *c1 = new TCanvas("MET_loose", "", 2000, 2000);
 	c1->cd();
+
+cout<<__LINE__<<endl;
+
+	gPad->SetLogy(1);
+	gStyle->SetOptStat(kFALSE);
 
 	z_met_loose->SetTitle("E^{miss}_{T} for 10 GeV Window");
 	z_met_loose->Draw("HIST");
