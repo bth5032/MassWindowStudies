@@ -6,7 +6,7 @@
 
 function makePlots {
 	mkdirs $1
-	root -l -b -q "drawPlots.C(\"$1\")"
+	root -l -b -q "DrawPlots.C(\"$1\")"
 }
 
 function makeHistos {	

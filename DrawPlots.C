@@ -279,7 +279,7 @@ void DrawPlots(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dilmass_tight->SetTitle("Dilepton Mass for 10 GeV Window");
+	z_dilmass_tight->SetTitle("Dilepton Mass for 2.5 GeV Window");
 	z_dilmass_tight->Draw("HIST");
 	tt_dilmass_tight->Draw("HIST SAME");
 
