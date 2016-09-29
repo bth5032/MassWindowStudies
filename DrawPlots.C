@@ -81,6 +81,10 @@ void DrawPlots(TString sample){
 	z_met_med->SetLineColor(kRed);
 	z_met_loose->SetLineColor(kRed);
 
+	z_met_tight->SetMinimum(0);
+	z_met_med->SetMinimum(0);
+	z_met_loose->SetMinimum(0);
+
 	tt_met_tight->SetLineColor(kBlue);
 	tt_met_med->SetLineColor(kBlue);
 	tt_met_loose->SetLineColor(kBlue);
@@ -102,6 +106,10 @@ void DrawPlots(TString sample){
 	z_dilmass_tight->SetLineColor(kRed);
 	z_dilmass_med->SetLineColor(kRed);
 	z_dilmass_loose->SetLineColor(kRed);
+
+	z_dilmass_tight->SetMinimum(0);
+	z_dilmass_med->SetMinimum(0);
+	z_dilmass_loose->SetMinimum(0);
 
 	tt_dilmass_tight->SetLineColor(kBlue);
 	tt_dilmass_med->SetLineColor(kBlue);
