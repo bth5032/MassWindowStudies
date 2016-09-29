@@ -81,9 +81,9 @@ void DrawPlots(TString sample){
 	z_met_med->SetLineColor(kRed);
 	z_met_loose->SetLineColor(kRed);
 
-	z_met_tight->SetMinimum(0);
+	/*z_met_tight->SetMinimum(0);
 	z_met_med->SetMinimum(0);
-	z_met_loose->SetMinimum(0);
+	z_met_loose->SetMinimum(0);*/
 
 	tt_met_tight->SetLineColor(kBlue);
 	tt_met_med->SetLineColor(kBlue);
@@ -107,9 +107,9 @@ void DrawPlots(TString sample){
 	z_dilmass_med->SetLineColor(kRed);
 	z_dilmass_loose->SetLineColor(kRed);
 
-	z_dilmass_tight->SetMinimum(0);
+	/*z_dilmass_tight->SetMinimum(0);
 	z_dilmass_med->SetMinimum(0);
-	z_dilmass_loose->SetMinimum(0);
+	z_dilmass_loose->SetMinimum(0);*/
 
 	tt_dilmass_tight->SetLineColor(kBlue);
 	tt_dilmass_med->SetLineColor(kBlue);
@@ -155,7 +155,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_loose->SetTitle("Dilepton Mass for 10 GeV Window");
@@ -220,7 +220,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_med->SetTitle("Dilepton Mass for 5 GeV Window");
@@ -284,7 +284,7 @@ void DrawPlots(TString sample){
 
 //cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_tight->SetTitle("Dilepton Mass for 2.5 GeV Window");
