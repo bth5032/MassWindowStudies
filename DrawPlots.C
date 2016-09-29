@@ -95,7 +95,7 @@ cout<<__LINE__<<endl;
 
 cout<<__LINE__<<endl;
 
-	c1->SaveAs("loose_MET.png");
+	c1->SaveAs(sample+"_loose_MET.png");
 
 cout<<__LINE__<<endl;
 
