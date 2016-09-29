@@ -4,15 +4,15 @@
 void DrawPlots(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/"
 
-	vector<TString> files;
+	vector<TFile*> files;
 	if (sample == "edge"){
-		files.push_back(dir_loc+TString("ct_TT_Base_EdgeZ.root"));
-		files.push_back(dir_loc+TString("ct_TT_med_EdgeZ.root"));
-		files.push_back(dir_loc+TString("ct_TT_tight_EdgeZ.root"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_EdgeZ.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_med_EdgeZ.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_TT_tight_EdgeZ.root"), "READ"));
 
-		files.push_back(dir_loc+TString("ct_Z_Base_EdgeZ.root"));
-		files.push_back(dir_loc+TString("ct_Z_med_EdgeZ.root"));
-		files.push_back(dir_loc+TString("ct_Z_tight_EdgeZ.root"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_Base_EdgeZ.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_med_EdgeZ.root"), "READ"));
+		files.push_back(TFile::Open(dir_loc+TString("ct_Z_tight_EdgeZ.root"), "READ"));
 	}
 
 	else{
