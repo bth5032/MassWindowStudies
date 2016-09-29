@@ -5,7 +5,6 @@
 
 
 function makePlots {
-	mkdirs $1
 	root -l -b -q "DrawPlots.C(\"$1\")"
 }
 
