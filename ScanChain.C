@@ -875,15 +875,15 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   dilmass->SetDirectory(rootdir);
   dilmass->Sumw2();
 
-  TH1D *DeltaPhi_lep_met_0_200 = new TH1D(sampleName+"DeltaPhi_lep_met_0_200", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #le 200"+sampleName, 100,-(3.15/2),(3.15/2));
+  TH1D *DeltaPhi_lep_met_0_200 = new TH1D(sampleName+"_DeltaPhi_lep_met_0_200", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #le 200"+sampleName, 100,0,3.15);
   DeltaPhi_lep_met_0_200->SetDirectory(rootdir);
   DeltaPhi_lep_met_0_200->Sumw2();
 
-  TH1D *DeltaPhi_lep_met_200_300 = new TH1D(sampleName+"DeltaPhi_lep_met_200_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [200,300)"+sampleName, 100,-(3.15/2),(3.15/2));
+  TH1D *DeltaPhi_lep_met_200_300 = new TH1D(sampleName+"_DeltaPhi_lep_met_200_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [200,300)"+sampleName, 100,0,3.15);
   DeltaPhi_lep_met_200_300->SetDirectory(rootdir);
   DeltaPhi_lep_met_200_300->Sumw2();
   
-  TH1D *DeltaPhi_lep_met_300 = new TH1D(sampleName+"DeltaPhi_lep_met_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #ge 300"+sampleName, 100,-(3.15/2),(3.15/2));
+  TH1D *DeltaPhi_lep_met_300 = new TH1D(sampleName+"_DeltaPhi_lep_met_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #ge 300"+sampleName, 100,0,3.15);
   DeltaPhi_lep_met_300->SetDirectory(rootdir);
   DeltaPhi_lep_met_300->Sumw2();
 
@@ -1202,7 +1202,7 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
 
       // Calculate lepton delta phi
       LorentzVector leptons = phys.lep_p4().at(0) + phys.lep_p4().at(1);
-      double dphi_lep_met = leptons.phi() - phys.met_T1CHS_miniAOD_CORE_phi();
+      double dphi_lep_met = acos(cos(leptons.phi() - phys.met_T1CHS_miniAOD_CORE_phi()));
 
       /*if (weight < 0){
          cout<<"Negative Weight2: "<<weight<<" "<<phys.evt()<<endl;
