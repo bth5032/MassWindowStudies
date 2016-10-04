@@ -527,30 +527,30 @@ double getEff(){
 }
 
 void readyReweightHists(){
-    TString conf_name = conf->get("Name");
+  TString conf_name = conf->get("Name");
 
+  //cout<<"FINDFIND Adding "<<conf->get("Name");
+
+  cout<<"Reweighting with "<<TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root")<<endl;
+  TString rwt_hist_name = "h_"+conf->get("rwt_var")+"_ratio";
+  TFile *reweight_file = TFile::Open( TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root"), "READ");
+  g_reweight_pairs.push_back(make_pair( (TH1D*) reweight_file->Get(rwt_hist_name)->Clone(TString("reweight_hist_")+conf->get("rwt_var")),conf->get("rwt_var")));
+  g_reweight_pairs.back().first->SetDirectory(rootdir);
+  reweight_file->Close();
+
+  while (conf->get("weight_from") != "" ){
+    conf->loadConfig(conf->get("weight_from"));
     //cout<<"FINDFIND Adding "<<conf->get("Name");
-
     cout<<"Reweighting with "<<TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root")<<endl;
-    TString rwt_hist_name = "h_"+conf->get("rwt_var")+"_ratio";
-    TFile *reweight_file = TFile::Open( TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root"), "READ");
+    rwt_hist_name = "h_"+conf->get("rwt_var")+"_ratio";
+    reweight_file = TFile::Open( TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root"), "READ");
     g_reweight_pairs.push_back(make_pair( (TH1D*) reweight_file->Get(rwt_hist_name)->Clone(TString("reweight_hist_")+conf->get("rwt_var")),conf->get("rwt_var")));
     g_reweight_pairs.back().first->SetDirectory(rootdir);
-    reweight_file->Close();
+    reweight_file->Close();      
+  }
 
-    while (conf->get("weight_from") != "" ){
-      conf->loadConfig(conf->get("weight_from"));
-      //cout<<"FINDFIND Adding "<<conf->get("Name");
-      cout<<"Reweighting with "<<TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root")<<endl;
-      rwt_hist_name = "h_"+conf->get("rwt_var")+"_ratio";
-      reweight_file = TFile::Open( TString(conf->get("histo_output_dir")+"ct_"+conf->get("rwt_var")+"_"+conf->get("signal_region")+"_rwt.root"), "READ");
-      g_reweight_pairs.push_back(make_pair( (TH1D*) reweight_file->Get(rwt_hist_name)->Clone(TString("reweight_hist_")+conf->get("rwt_var")),conf->get("rwt_var")));
-      g_reweight_pairs.back().first->SetDirectory(rootdir);
-      reweight_file->Close();      
-    }
-
-    conf->loadConfig(conf_name.Data());
-    cout<<"Reweight hists loaded, proceeding with conf "<<conf->get("Name")<<endl;
+  conf->loadConfig(conf_name.Data());
+  cout<<"Reweight hists loaded, proceeding with conf "<<conf->get("Name")<<endl;
 }
 
 double getReweight(){
@@ -875,6 +875,18 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   dilmass->SetDirectory(rootdir);
   dilmass->Sumw2();
 
+  TH1D *DeltaPhi_lep_met_0_200 = new TH1D(sampleName+"DeltaPhi_lep_met_0_200", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #le 200"+sampleName, 100,-(3.15/2),(3.15/2));
+  DeltaPhi_lep_met_0_200->SetDirectory(rootdir);
+  DeltaPhi_lep_met_0_200->Sumw2();
+
+  TH1D *DeltaPhi_lep_met_200_300 = new TH1D(sampleName+"DeltaPhi_lep_met_200_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [200,300)"+sampleName, 100,-(3.15/2),(3.15/2));
+  DeltaPhi_lep_met_200_300->SetDirectory(rootdir);
+  DeltaPhi_lep_met_200_300->Sumw2();
+  
+  TH1D *DeltaPhi_lep_met_300 = new TH1D(sampleName+"DeltaPhi_lep_met_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #ge 300"+sampleName, 100,-(3.15/2),(3.15/2));
+  DeltaPhi_lep_met_300->SetDirectory(rootdir);
+  DeltaPhi_lep_met_300->Sumw2();
+
   //MET Histos
   TH1D *t1met = new TH1D(sampleName+"_type1MET", "Type 1 MET for "+sampleName, 6000,0,6000);
   t1met->SetDirectory(rootdir);
@@ -1187,6 +1199,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       //cout<<__LINE__<<endl;      
       numMETFilters->Fill(sumMETFilters);
 
+
+      // Calculate lepton delta phi
+      LorentzVector leptons = phys.lep_p4().at(0) + phys.lep_p4().at(1);
+      double dphi_lep_met = leptons.phi() - phys.met_T1CHS_miniAOD_CORE_phi();
+
       /*if (weight < 0){
          cout<<"Negative Weight2: "<<weight<<" "<<phys.evt()<<endl;
       }
@@ -1194,6 +1211,15 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       if (phys.met_T1CHS_miniAOD_CORE_pt() != 0) {
         t1met->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
         t1met_widebin->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+        if (phys.met_T1CHS_miniAOD_CORE_pt() <= 200){
+          DeltaPhi_lep_met_0_200->Fill(dphi_lep_met, weight);
+        }
+        else if (phys.met_T1CHS_miniAOD_CORE_pt() < 300){
+          DeltaPhi_lep_met_200_300->Fill(dphi_lep_met, weight);
+        }
+        else{
+          DeltaPhi_lep_met_300->Fill(dphi_lep_met, weight);
+        }
       }
       if (phys.met_rawPt() != 0) rawmet->Fill(phys.met_rawPt(), weight);
       if (phys.ht() != 0) {
@@ -1214,85 +1240,8 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
 //=======================================
 // Debugging And Odd Corrections After Cuts
 //=======================================
-      /*if (conf->get("rares") == "true"){
-        //cout<<__LINE__<<endl;
-        //cout<<"EVENT-LIST "<<eventCount<<" : "<<phys.evt()<<endl;
-          //cout<<__LINE__<<endl;
-        cout<<"EVENT-LIST "<<eventCount<<" : "<<phys.evt()<<" "<<phys.met_T1CHS_miniAOD_CORE_pt()<<endl;
-        eventCount++;
-        if ( inVinceNotMine.count(phys.evt()) != 0){
-          //printPass = true;
-        }
-        if ( inMineNotVince.count(phys.evt()) != 0){
-          printFail = true;
-        }
-      }*/
       eventCount++;
       
-      //if (printStats) {cout<<"Event: "<<phys.evt()<<endl;}
-
-      //if(phys.met_T1CHS_miniAOD_CORE_pt() >= 300){
-      //  cout<<"Event: "<<phys.evt()<<" MET: "<<phys.met_T1CHS_miniAOD_CORE_pt()<<" njets: "<<phys.njets()<<" nbtags: "<<phys.nBJetMedium()<<" HT: "<<phys.ht()<<endl;
-      //}
-      
-      
-      /*
-      //Vince's Photon plots
-      if (conf->get("signal_region") == "VincePhotonPT" && phys.HLT_Photon165_R9Id90_HE10_IsoM()){
-        if (phys.met_T1CHS_miniAOD_CORE_pt() >= 150){
-          met_150->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
-          vpt_150->Fill(bosonPt(), weight);
-        } 
-        if (phys.met_T1CHS_miniAOD_CORE_pt() >= 225){
-          met_225->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
-          vpt_225->Fill(bosonPt(), weight);
-        } 
-        if (phys.met_T1CHS_miniAOD_CORE_pt() >= 300){
-          met_300->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
-          vpt_300->Fill(bosonPt(), weight);
-        } 
-      }
-
-      if ( phys.isData() && conf->get("data_type") == "gjets" && conf->get("data") == "true" && phys.ngamma() > 0) //if photon data
-      {
-        //cout<<__LINE__<<endl;
-        if( ( phys.HLT_Photon22_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon30_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon36_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon50_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon75_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon90_R9Id90_HE10_IsoM()  > 0 || phys.HLT_Photon120_R9Id90_HE10_IsoM() > 0 || phys.HLT_Photon165_R9Id90_HE10_IsoM() > 0 || phys.HLT_Photon165_HE10() > 0) ){
-          //cout<<__LINE__<<endl;
-          if( (phys.HLT_Photon165_R9Id90_HE10_IsoM() > 0 || phys.HLT_Photon165_HE10() > 0) && phys.gamma_pt().at(0) > 180 ){
-            nVert_HLT_Photon165_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon120_R9Id90_HE10_IsoM() > 0 && phys.gamma_pt().at(0) > 135 ){
-            nVert_HLT_Photon120_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon90_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) > 105 ){
-            nVert_HLT_Photon90_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon75_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) > 85 ){
-            nVert_HLT_Photon75_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon50_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) > 55 ){
-            nVert_HLT_Photon50_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon36_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) < 55 && phys.gamma_pt().at(0) > 40 ){
-            nVert_HLT_Photon36_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon30_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) < 40 && phys.gamma_pt().at(0) > 33 ){
-            nVert_HLT_Photon30_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-            //cout<<__LINE__<<endl;
-          }
-          else if( phys.HLT_Photon22_R9Id90_HE10_IsoM()  > 0 && phys.gamma_pt().at(0) < 33 ){ 
-            //cout<<__LINE__<<endl;
-            nVert_HLT_Photon22_R9Id90_HE10_IsoM->Fill(phys.nVert(), weight);
-          }
-          //cout<<__LINE__<<endl;
-        }
-      }*/
   } 
     // Clean Up
     //cout<<__LINE__<<endl;
@@ -1342,14 +1291,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   nVert->Write();
   //cout<<__LINE__<<endl;
-  if (conf->get("signal_region") == "VincePhotonPT"){
-    met_150->Write();
-    vpt_150->Write();
-    met_225->Write();
-    vpt_225->Write();
-    met_300->Write();
-    vpt_300->Write();
-  }
+  DeltaPhi_lep_met_0_200->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_lep_met_200_300->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_lep_met_300->Write();
   //cout<<__LINE__<<endl;
 
   if ( conf->get("data_type") == "gjets" && conf->get("data") == "true" ) //if photon data
