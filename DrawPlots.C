@@ -442,7 +442,7 @@ void processSample(TString sample){
 	ltt_med_phi->SetLineColor(kWhite);  
 	ltt_med_phi->SetShadowColor(kWhite);
 	ltt_med_phi->SetFillColor(kWhite);
-	ltt_med_phi->AddEntry(tt_dphi_med_0_200, "E^{miss}_{T} #in [150,200)", "f");
+	ltt_med_phi->AddEntry(tt_dphi_med_150_200, "E^{miss}_{T} #in [150,200)", "f");
 	ltt_med_phi->AddEntry(tt_dphi_med_200_300, "E^{miss}_{T} #in [200,300)", "f");
 	ltt_med_phi->AddEntry(tt_dphi_med_300, "E^{miss}_{T} #geq 300", "f");
 	  
