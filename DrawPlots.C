@@ -427,7 +427,7 @@ void processSample(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-	tt_dphi_med_0_200->SetMinimum(0.001);
+	tt_dphi_med_150_200->SetMinimum(0.001);
 
 	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
 	tt_dphi_med_150_200->Draw("HIST");
