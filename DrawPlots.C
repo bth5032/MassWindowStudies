@@ -261,6 +261,8 @@ void processSample(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
+	tt_dphi_loose_0_200->SetMinimum(0);
+
 	tt_dphi_loose_0_200->SetTitle("#Delta#Phi(E^{miss}_T, ll) for t#bar{t} events with 10 GeV Mass Window");
 	tt_dphi_loose_0_200->Draw("HIST");
 	tt_dphi_loose_200_300->Draw("HIST SAME");
@@ -293,6 +295,8 @@ void processSample(TString sample){
 
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
+
+	z_dphi_loose_0_200->SetMinimum(0);
 
 	z_dphi_loose_0_200->SetTitle("#Delta#Phi(E^{miss}_T, ll) for Zjets events with 10 GeV Mass Window");
 	z_dphi_loose_0_200->Draw("HIST");
