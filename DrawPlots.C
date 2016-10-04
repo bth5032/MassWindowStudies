@@ -73,6 +73,8 @@ void processSample(TString sample){
 	TH1D * tt_met_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_type1MET_widebin"))->Clone("tt_met_med");
 	TH1D * tt_met_tight = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_type1MET_widebin"))->Clone("tt_met_tight");
 
+	cout<<__LINE__<<endl;
+
 	tt_met_tight->SetLineColor(kBlue);
 	tt_met_med->SetLineColor(kBlue);
 	tt_met_loose->SetLineColor(kBlue);
@@ -83,13 +85,19 @@ void processSample(TString sample){
 	TH1D * tt_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_loose_200_300");
 	TH1D * tt_dphi_loose_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_300"))->Clone("tt_dphi_loose_300");
 
+	cout<<__LINE__<<endl;
+
 	TH1D * tt_dphi_med_0_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_med_0_200");
 	TH1D * tt_dphi_med_200_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_med_200_300");
 	TH1D * tt_dphi_med_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_300"))->Clone("tt_dphi_med_300");
 
+	cout<<__LINE__<<endl;
+
 	TH1D * tt_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_tight_0_200");
 	TH1D * tt_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_tight_200_300");
 	TH1D * tt_dphi_tight_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_300"))->Clone("tt_dphi_tight_300");
+
+	cout<<__LINE__<<endl;
 
 	tt_dphi_loose_0_200->SetLineColor(46);
 	tt_dphi_loose_200_300->SetLineColor(8);
@@ -103,7 +111,7 @@ void processSample(TString sample){
 	tt_dphi_tight_200_300->SetLineColor(8);
 	tt_dphi_tight_300->SetLineColor(9);
 
-
+	cout<<__LINE__<<endl;
 
 	// Z MET Plots
 	TH1D * z_met_loose = (TH1D*) ((TH1D*) files[3]->Get("zjets_type1MET_widebin"))->Clone("z_met_loose");
@@ -114,19 +122,26 @@ void processSample(TString sample){
 	z_met_med->SetLineColor(kRed);
 	z_met_loose->SetLineColor(kRed);
 
+	cout<<__LINE__<<endl;
 
 	// Z dPHI Plots
 	TH1D * z_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_loose_0_200");
 	TH1D * z_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_loose_200_300");
 	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
 
+	cout<<__LINE__<<endl;
+
 	TH1D * z_dphi_med_0_200 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_med_0_200");
 	TH1D * z_dphi_med_200_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_med_200_300");
 	TH1D * z_dphi_med_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_med_300");
 
+	cout<<__LINE__<<endl;
+
 	TH1D * z_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_tight_0_200");
 	TH1D * z_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_tight_200_300");
 	TH1D * z_dphi_tight_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_tight_300");
+
+	cout<<__LINE__<<endl;
 
 	z_dphi_loose_0_200->SetLineColor(46);
 	z_dphi_loose_200_300->SetLineColor(8);
