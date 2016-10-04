@@ -4,6 +4,10 @@
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
 
+//=================
+// Define Files
+//=================
+
 	vector<TFile*> files;
 	if (sample == "edge"){
 		files.push_back(TFile::Open(dir_loc+TString("ct_TT_Base_EdgeZ.root"), "READ"));
@@ -66,7 +70,9 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-//Get histograms from file:
+//===========================
+// Get histograms from file:
+//===========================
 
 	//TTBar MET Plots
 	TH1D * tt_met_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_type1MET_widebin"))->Clone("tt_met_loose");
@@ -81,33 +87,33 @@ void processSample(TString sample){
 
 	
 	//TTBar dPHI Plots
-	TH1D * tt_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_loose_0_200");
+	TH1D * tt_dphi_loose_150_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_loose_150_200");
 	TH1D * tt_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_loose_200_300");
 	TH1D * tt_dphi_loose_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_300"))->Clone("tt_dphi_loose_300");
 
 	//cout<<__LINE__<<endl;
 
-	TH1D * tt_dphi_med_0_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_med_0_200");
+	TH1D * tt_dphi_med_150_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_med_150_200");
 	TH1D * tt_dphi_med_200_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_med_200_300");
 	TH1D * tt_dphi_med_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_300"))->Clone("tt_dphi_med_300");
 
 	//cout<<__LINE__<<endl;
 
-	TH1D * tt_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_tight_0_200");
+	TH1D * tt_dphi_tight_150_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_tight_150_200");
 	TH1D * tt_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_tight_200_300");
 	TH1D * tt_dphi_tight_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_300"))->Clone("tt_dphi_tight_300");
 
 	//cout<<__LINE__<<endl;
 
-	tt_dphi_loose_0_200->SetLineColor(46);
+	tt_dphi_loose_150_200->SetLineColor(46);
 	tt_dphi_loose_200_300->SetLineColor(8);
 	tt_dphi_loose_300->SetLineColor(9);
 
-	tt_dphi_med_0_200->SetLineColor(46);
+	tt_dphi_med_150_200->SetLineColor(46);
 	tt_dphi_med_200_300->SetLineColor(8);
 	tt_dphi_med_300->SetLineColor(9);
 
-	tt_dphi_tight_0_200->SetLineColor(46);
+	tt_dphi_tight_150_200->SetLineColor(46);
 	tt_dphi_tight_200_300->SetLineColor(8);
 	tt_dphi_tight_300->SetLineColor(9);
 
@@ -125,33 +131,33 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 
 	// Z dPHI Plots
-	TH1D * z_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_loose_0_200");
+	TH1D * z_dphi_loose_150_200 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_loose_150_200");
 	TH1D * z_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_loose_200_300");
 	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
 
 	//cout<<__LINE__<<endl;
 
-	TH1D * z_dphi_med_0_200 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_med_0_200");
+	TH1D * z_dphi_med_150_200 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_med_150_200");
 	TH1D * z_dphi_med_200_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_med_200_300");
 	TH1D * z_dphi_med_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_med_300");
 
 	//cout<<__LINE__<<endl;
 
-	TH1D * z_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_tight_0_200");
+	TH1D * z_dphi_tight_150_200 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_tight_150_200");
 	TH1D * z_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_tight_200_300");
 	TH1D * z_dphi_tight_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_tight_300");
 
 	//cout<<__LINE__<<endl;
 
-	z_dphi_loose_0_200->SetLineColor(46);
+	z_dphi_loose_150_200->SetLineColor(46);
 	z_dphi_loose_200_300->SetLineColor(8);
 	z_dphi_loose_300->SetLineColor(9);
 
-	z_dphi_med_0_200->SetLineColor(46);
+	z_dphi_med_150_200->SetLineColor(46);
 	z_dphi_med_200_300->SetLineColor(8);
 	z_dphi_med_300->SetLineColor(9);
 
-	z_dphi_tight_0_200->SetLineColor(46);
+	z_dphi_tight_150_200->SetLineColor(46);
 	z_dphi_tight_200_300->SetLineColor(8);
 	z_dphi_tight_300->SetLineColor(9);
 
@@ -193,6 +199,9 @@ void processSample(TString sample){
 //Draw Loose Plots
 //===============================
 
+	//-------------
+	//MET
+	//-------------
 	TCanvas *c1 = new TCanvas("MET_loose", "", 2000, 2000);
 	c1->cd();
 
@@ -221,6 +230,10 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 
 	c1->SaveAs("plots/"+sample+"_loose_MET.png");
+
+	//-------------
+	//Dilepton Mass
+	//-------------
 
 	TCanvas *c2 = new TCanvas("dilmass_loose", "", 2000, 2000);
 	c2->cd();
@@ -252,6 +265,10 @@ void processSample(TString sample){
 	c2->SaveAs("plots/"+sample+"_loose_dilmass.png");
 
 	//cout<<__LINE__<<endl;
+
+	//------------------
+	// Delta Phi TTBar
+	//------------------
 
 	TCanvas *ctt_loose_dPhi = new TCanvas("tt_loose_dPhi", "", 2000, 2000);
 	ctt_loose_dPhi->cd();
@@ -288,6 +305,10 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
+	//------------------
+	// Delta Phi Z
+	//------------------
+
 	TCanvas *cz_loose_dPhi = new TCanvas("z_loose_dPhi", "", 2000, 2000);
 	cz_loose_dPhi->cd();
 
@@ -296,10 +317,10 @@ void processSample(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dphi_loose_0_200->SetMinimum(0.001);
+	z_dphi_loose_150_200->SetMinimum(0.001);
 
-	z_dphi_loose_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
-	z_dphi_loose_0_200->Draw("HIST");
+	z_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	z_dphi_loose_150_200->Draw("HIST");
 	z_dphi_loose_200_300->Draw("HIST SAME");
 	z_dphi_loose_300->Draw("HIST SAME");
 
@@ -311,7 +332,7 @@ void processSample(TString sample){
 	lz_loose_phi->SetLineColor(kWhite);  
 	lz_loose_phi->SetShadowColor(kWhite);
 	lz_loose_phi->SetFillColor(kWhite);
-	lz_loose_phi->AddEntry(z_dphi_loose_0_200, "E^{miss}_{T} < 200", "f");
+	lz_loose_phi->AddEntry(z_dphi_loose_0_200, "E^{miss}_{T} #in [150, 200)", "f");
 	lz_loose_phi->AddEntry(z_dphi_loose_200_300, "E^{miss}_{T} #in [200,300)", "f");
 	lz_loose_phi->AddEntry(z_dphi_loose_300, "E^{miss}_{T} #geq 300", "f");
 	  
@@ -544,7 +565,7 @@ void processSample(TString sample){
 	ltt_tight_phi->SetLineColor(kWhite);  
 	ltt_tight_phi->SetShadowColor(kWhite);
 	ltt_tight_phi->SetFillColor(kWhite);
-	ltt_tight_phi->AddEntry(tt_dphi_tight_0_200, "E^{miss}_{T} < 200", "f");
+	ltt_tight_phi->AddEntry(tt_dphi_tight_150_200, "E^{miss}_{T} #in [150, 200)", "f");
 	ltt_tight_phi->AddEntry(tt_dphi_tight_200_300, "E^{miss}_{T} #in [200,300)", "f");
 	ltt_tight_phi->AddEntry(tt_dphi_tight_300, "E^{miss}_{T} #geq 300", "f");
 	  
@@ -590,7 +611,6 @@ void processSample(TString sample){
 	cz_tight_dPhi->SaveAs("plots/"+sample+"_z_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
-
 
 }
 
