@@ -261,7 +261,7 @@ void processSample(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-	tt_dphi_loose_0_200->SetMinimum(tt_dphi_loose_300->GetMinimum());
+	tt_dphi_loose_0_200->SetMinimum(0.001);
 
 	tt_dphi_loose_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
 	tt_dphi_loose_0_200->Draw("HIST");
@@ -296,7 +296,7 @@ void processSample(TString sample){
 	gPad->SetLogy(1);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dphi_loose_0_200->SetMinimum(z_dphi_loose_300->GetMinimum());
+	z_dphi_loose_0_200->SetMinimum(0.001);
 
 	z_dphi_loose_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
 	z_dphi_loose_0_200->Draw("HIST");
@@ -387,6 +387,76 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
+	TCanvas *ctt_med_dPhi = new TCanvas("tt_med_dPhi", "", 2000, 2000);
+	ctt_med_dPhi->cd();
+
+	//cout<<__LINE__<<endl;
+
+	gPad->SetLogy(1);
+	gStyle->SetOptStat(kFALSE);
+
+	tt_dphi_med_0_200->SetMinimum(0.001);
+
+	tt_dphi_med_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	tt_dphi_med_0_200->Draw("HIST");
+	tt_dphi_med_200_300->Draw("HIST SAME");
+	tt_dphi_med_300->Draw("HIST SAME");
+
+	//cout<<__LINE__<<endl;
+	
+	TLegend *ltt_med_phi;
+	ltt_med_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
+	  
+	ltt_med_phi->SetLineColor(kWhite);  
+	ltt_med_phi->SetShadowColor(kWhite);
+	ltt_med_phi->SetFillColor(kWhite);
+	ltt_med_phi->AddEntry(tt_dphi_med_0_200, "E^{miss}_{T} < 200", "f");
+	ltt_med_phi->AddEntry(tt_dphi_med_200_300, "E^{miss}_{T} #in [200,300)", "f");
+	ltt_med_phi->AddEntry(tt_dphi_med_300, "E^{miss}_{T} #geq 300", "f");
+	  
+	ltt_med_phi->Draw("same");
+
+	//cout<<__LINE__<<endl;
+
+	ctt_med_dPhi->SaveAs("plots/"+sample+"_tt_med_dPhi.png");
+
+	//cout<<__LINE__<<endl;
+
+	TCanvas *cz_med_dPhi = new TCanvas("z_med_dPhi", "", 2000, 2000);
+	cz_med_dPhi->cd();
+
+	//cout<<__LINE__<<endl;
+
+	gPad->SetLogy(1);
+	gStyle->SetOptStat(kFALSE);
+
+	z_dphi_med_0_200->SetMinimum(0.001);
+
+	z_dphi_med_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	z_dphi_med_0_200->Draw("HIST");
+	z_dphi_med_200_300->Draw("HIST SAME");
+	z_dphi_med_300->Draw("HIST SAME");
+
+	//cout<<__LINE__<<endl;
+	
+	TLegend *lz_med_phi;
+	lz_med_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
+	  
+	lz_med_phi->SetLineColor(kWhite);  
+	lz_med_phi->SetShadowColor(kWhite);
+	lz_med_phi->SetFillColor(kWhite);
+	lz_med_phi->AddEntry(z_dphi_med_0_200, "E^{miss}_{T} < 200", "f");
+	lz_med_phi->AddEntry(z_dphi_med_200_300, "E^{miss}_{T} #in [200,300)", "f");
+	lz_med_phi->AddEntry(z_dphi_med_300, "E^{miss}_{T} #geq 300", "f");
+	  
+	lz_med_phi->Draw("same");
+
+	//cout<<__LINE__<<endl;
+
+	cz_med_dPhi->SaveAs("plots/"+sample+"_z_med_dPhi.png");
+
+	//cout<<__LINE__<<endl;
+
 //===============================
 //Draw Tight Plots
 //===============================
@@ -448,6 +518,76 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 
 	c6->SaveAs("plots/"+sample+"_tight_dilmass.png");
+
+	//cout<<__LINE__<<endl;
+
+	TCanvas *ctt_tight_dPhi = new TCanvas("tt_tight_dPhi", "", 2000, 2000);
+	ctt_tight_dPhi->cd();
+
+	//cout<<__LINE__<<endl;
+
+	gPad->SetLogy(1);
+	gStyle->SetOptStat(kFALSE);
+
+	tt_dphi_tight_0_200->SetMinimum(0.001);
+
+	tt_dphi_tight_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	tt_dphi_tight_0_200->Draw("HIST");
+	tt_dphi_tight_200_300->Draw("HIST SAME");
+	tt_dphi_tight_300->Draw("HIST SAME");
+
+	//cout<<__LINE__<<endl;
+	
+	TLegend *ltt_tight_phi;
+	ltt_tight_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
+	  
+	ltt_tight_phi->SetLineColor(kWhite);  
+	ltt_tight_phi->SetShadowColor(kWhite);
+	ltt_tight_phi->SetFillColor(kWhite);
+	ltt_tight_phi->AddEntry(tt_dphi_tight_0_200, "E^{miss}_{T} < 200", "f");
+	ltt_tight_phi->AddEntry(tt_dphi_tight_200_300, "E^{miss}_{T} #in [200,300)", "f");
+	ltt_tight_phi->AddEntry(tt_dphi_tight_300, "E^{miss}_{T} #geq 300", "f");
+	  
+	ltt_tight_phi->Draw("same");
+
+	//cout<<__LINE__<<endl;
+
+	ctt_tight_dPhi->SaveAs("plots/"+sample+"_tt_tight_dPhi.png");
+
+	//cout<<__LINE__<<endl;
+
+	TCanvas *cz_tight_dPhi = new TCanvas("z_tight_dPhi", "", 2000, 2000);
+	cz_tight_dPhi->cd();
+
+	//cout<<__LINE__<<endl;
+
+	gPad->SetLogy(1);
+	gStyle->SetOptStat(kFALSE);
+
+	z_dphi_tight_0_200->SetMinimum(0.001);
+
+	z_dphi_tight_0_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	z_dphi_tight_0_200->Draw("HIST");
+	z_dphi_tight_200_300->Draw("HIST SAME");
+	z_dphi_tight_300->Draw("HIST SAME");
+
+	//cout<<__LINE__<<endl;
+	
+	TLegend *lz_tight_phi;
+	lz_tight_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
+	  
+	lz_tight_phi->SetLineColor(kWhite);  
+	lz_tight_phi->SetShadowColor(kWhite);
+	lz_tight_phi->SetFillColor(kWhite);
+	lz_tight_phi->AddEntry(z_dphi_tight_0_200, "E^{miss}_{T} < 200", "f");
+	lz_tight_phi->AddEntry(z_dphi_tight_200_300, "E^{miss}_{T} #in [200,300)", "f");
+	lz_tight_phi->AddEntry(z_dphi_tight_300, "E^{miss}_{T} #geq 300", "f");
+	  
+	lz_tight_phi->Draw("same");
+
+	//cout<<__LINE__<<endl;
+
+	cz_tight_dPhi->SaveAs("plots/"+sample+"_z_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
