@@ -271,7 +271,7 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 	
 	TLegend *ltt_loose_phi;
-	ltt_loose_phi = new TLegend(0.73, 0.73, 0.88, 0.88);
+	ltt_loose_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
 	  
 	ltt_loose_phi->SetLineColor(kWhite);  
 	ltt_loose_phi->SetShadowColor(kWhite);
@@ -306,7 +306,7 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 	
 	TLegend *lz_loose_phi;
-	lz_loose_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
+	lz_loose_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
 	  
 	lz_loose_phi->SetLineColor(kWhite);  
 	lz_loose_phi->SetShadowColor(kWhite);
