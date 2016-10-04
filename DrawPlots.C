@@ -278,7 +278,7 @@ void processSample(TString sample){
 	ltt_loose_phi->SetFillColor(kWhite);
 	ltt_loose_phi->AddEntry(tt_dphi_loose_0_200, "E^{miss}_{T} < 200", "f");
 	ltt_loose_phi->AddEntry(tt_dphi_loose_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	ltt_loose_phi->AddEntry(tt_dphi_loose_300, "E^{miss}_{T} #ge 300", "f");
+	ltt_loose_phi->AddEntry(tt_dphi_loose_300, "E^{miss}_{T} #geq 300", "f");
 	  
 	ltt_loose_phi->Draw("same");
 
@@ -306,14 +306,14 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 	
 	TLegend *lz_loose_phi;
-	lz_loose_phi = new TLegend(0.73, 0.73, 0.88, 0.88);
+	lz_loose_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
 	  
 	lz_loose_phi->SetLineColor(kWhite);  
 	lz_loose_phi->SetShadowColor(kWhite);
 	lz_loose_phi->SetFillColor(kWhite);
 	lz_loose_phi->AddEntry(z_dphi_loose_0_200, "E^{miss}_{T} < 200", "f");
 	lz_loose_phi->AddEntry(z_dphi_loose_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	lz_loose_phi->AddEntry(z_dphi_loose_300, "E^{miss}_{T} #ge 300", "f");
+	lz_loose_phi->AddEntry(z_dphi_loose_300, "E^{miss}_{T} #geq 300", "f");
 	  
 	lz_loose_phi->Draw("same");
 
