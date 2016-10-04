@@ -81,21 +81,21 @@ void processSample(TString sample){
 
 	
 	//TTBar dPHI Plots
-	TH1D * tt_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_loose_0_200");
-	TH1D * tt_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_loose_200_300");
-	TH1D * tt_dphi_loose_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_300"))->Clone("tt_dphi_loose_300");
+	TH1D * tt_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_BaseDeltaPhi_lep_met_0_200"))->Clone("tt_dphi_loose_0_200");
+	TH1D * tt_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_BaseDeltaPhi_lep_met_200_300"))->Clone("tt_dphi_loose_200_300");
+	TH1D * tt_dphi_loose_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_BaseDeltaPhi_lep_met_300"))->Clone("tt_dphi_loose_300");
 
 	cout<<__LINE__<<endl;
 
-	TH1D * tt_dphi_med_0_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_med_0_200");
-	TH1D * tt_dphi_med_200_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_med_200_300");
-	TH1D * tt_dphi_med_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_300"))->Clone("tt_dphi_med_300");
+	TH1D * tt_dphi_med_0_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_medDeltaPhi_lep_met_0_200"))->Clone("tt_dphi_med_0_200");
+	TH1D * tt_dphi_med_200_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_medDeltaPhi_lep_met_200_300"))->Clone("tt_dphi_med_200_300");
+	TH1D * tt_dphi_med_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_medDeltaPhi_lep_met_300"))->Clone("tt_dphi_med_300");
 
 	cout<<__LINE__<<endl;
 
-	TH1D * tt_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_0_200"))->Clone("tt_dphi_tight_0_200");
-	TH1D * tt_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_tight_200_300");
-	TH1D * tt_dphi_tight_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_300"))->Clone("tt_dphi_tight_300");
+	TH1D * tt_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tightDeltaPhi_lep_met_0_200"))->Clone("tt_dphi_tight_0_200");
+	TH1D * tt_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tightDeltaPhi_lep_met_200_300"))->Clone("tt_dphi_tight_200_300");
+	TH1D * tt_dphi_tight_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tightDeltaPhi_lep_met_300"))->Clone("tt_dphi_tight_300");
 
 	cout<<__LINE__<<endl;
 
@@ -125,21 +125,21 @@ void processSample(TString sample){
 	cout<<__LINE__<<endl;
 
 	// Z dPHI Plots
-	TH1D * z_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_loose_0_200");
-	TH1D * z_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_loose_200_300");
-	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
+	TH1D * z_dphi_loose_0_200 = (TH1D*) ((TH1D*) files[3]->Get("zjetsDeltaPhi_lep_met_0_200"))->Clone("z_dphi_loose_0_200");
+	TH1D * z_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[3]->Get("zjetsDeltaPhi_lep_met_200_300"))->Clone("z_dphi_loose_200_300");
+	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) files[3]->Get("zjetsDeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
 
 	cout<<__LINE__<<endl;
 
-	TH1D * z_dphi_med_0_200 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_med_0_200");
-	TH1D * z_dphi_med_200_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_med_200_300");
-	TH1D * z_dphi_med_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_med_300");
+	TH1D * z_dphi_med_0_200 = (TH1D*) ((TH1D*) files[4]->Get("zjetsDeltaPhi_lep_met_0_200"))->Clone("z_dphi_med_0_200");
+	TH1D * z_dphi_med_200_300 = (TH1D*) ((TH1D*) files[4]->Get("zjetsDeltaPhi_lep_met_200_300"))->Clone("z_dphi_med_200_300");
+	TH1D * z_dphi_med_300 = (TH1D*) ((TH1D*) files[4]->Get("zjetsDeltaPhi_lep_met_300"))->Clone("z_dphi_med_300");
 
 	cout<<__LINE__<<endl;
 
-	TH1D * z_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_0_200"))->Clone("z_dphi_tight_0_200");
-	TH1D * z_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_tight_200_300");
-	TH1D * z_dphi_tight_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_tight_300");
+	TH1D * z_dphi_tight_0_200 = (TH1D*) ((TH1D*) files[5]->Get("zjetsDeltaPhi_lep_met_0_200"))->Clone("z_dphi_tight_0_200");
+	TH1D * z_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[5]->Get("zjetsDeltaPhi_lep_met_200_300"))->Clone("z_dphi_tight_200_300");
+	TH1D * z_dphi_tight_300 = (TH1D*) ((TH1D*) files[5]->Get("zjetsDeltaPhi_lep_met_300"))->Clone("z_dphi_tight_300");
 
 	cout<<__LINE__<<endl;
 
