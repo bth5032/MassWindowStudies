@@ -114,12 +114,18 @@ void processSample(TString sample){
 	tt_dphi_loose_300->SetFillColor(9);
 
 	tt_dphi_med_150_200->SetLineColor(46);
+	tt_dphi_med_150_200->SetFillColor(46);
 	tt_dphi_med_200_300->SetLineColor(8);
+	tt_dphi_med_200_300->SetFillColor(8);
 	tt_dphi_med_300->SetLineColor(9);
+	tt_dphi_med_300->SetFillColor(9);
 
 	tt_dphi_tight_150_200->SetLineColor(46);
+	tt_dphi_tight_150_200->SetFillColor(46);
 	tt_dphi_tight_200_300->SetLineColor(8);
+	tt_dphi_tight_200_300->SetFillColor(8);
 	tt_dphi_tight_300->SetLineColor(9);
+	tt_dphi_tight_300->SetFillColor(9);
 
 	//cout<<__LINE__<<endl;
 
@@ -154,16 +160,25 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 
 	z_dphi_loose_150_200->SetLineColor(46);
+	z_dphi_loose_150_200->SetFillColor(46);
 	z_dphi_loose_200_300->SetLineColor(8);
+	z_dphi_loose_200_300->SetFillColor(8);
 	z_dphi_loose_300->SetLineColor(9);
+	z_dphi_loose_300->SetFillColor(9);
 
 	z_dphi_med_150_200->SetLineColor(46);
+	z_dphi_med_150_200->SetFillColor(46);
 	z_dphi_med_200_300->SetLineColor(8);
+	z_dphi_med_200_300->SetFillColor(8);
 	z_dphi_med_300->SetLineColor(9);
+	z_dphi_med_300->SetFillColor(9);
 
 	z_dphi_tight_150_200->SetLineColor(46);
+	z_dphi_tight_150_200->SetFillColor(46);
 	z_dphi_tight_200_300->SetLineColor(8);
+	z_dphi_tight_200_300->SetFillColor(8);
 	z_dphi_tight_300->SetLineColor(9);
+	z_dphi_tight_300->SetFillColor(9);
 
 	//cout<<__LINE__<<endl;
 
