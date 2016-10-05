@@ -284,7 +284,7 @@ void processSample(TString sample){
 
 	tt_dphi_loose_150_200->SetMinimum(0.001);
 
-	THStack *stack_loose_ttbar = new THStack("stack_loose_ttbar");
+	THStack *stack_loose_ttbar = new THStack("stack_loose_ttbar", "#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
 
 	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
 	
