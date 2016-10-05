@@ -3,7 +3,7 @@
 
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
-	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/"
+	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/";
 
 //=================
 // Define Files
