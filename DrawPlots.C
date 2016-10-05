@@ -643,6 +643,13 @@ ctt_tight_dPhi->~TCanvas();
 ctt_med_dPhi->~TCanvas();
 ctt_loose_dPhi->~TCanvas();
 
+c1->~TCanvas();
+c2->~TCanvas();
+c3->~TCanvas();
+c4->~TCanvas();
+c5->~TCanvas();
+c6->~TCanvas();
+
 }
 
 void DrawPlots(TString sample=""){
