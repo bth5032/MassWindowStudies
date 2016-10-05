@@ -182,12 +182,6 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	/*z_met_tight->SetMinimum(0);
-	z_met_med->SetMinimum(0);
-	z_met_loose->SetMinimum(0);*/
-
-	//cout<<__LINE__<<endl;
-
 	TH1D * tt_dilmass_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_dilmass"))->Clone("tt_dilmass_loose");
 	TH1D * tt_dilmass_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_dilmass"))->Clone("tt_dilmass_med");
 	TH1D * tt_dilmass_tight = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_dilmass"))->Clone("tt_dilmass_tight");
@@ -441,17 +435,17 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	ctt_med_dPhi->cd(1);
-	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
 	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
 	tt_dphi_med_150_200->Draw("HIST");
 
 	ctt_med_dPhi->cd(2);
-	tt_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	tt_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
 	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
 	tt_dphi_med_200_300->Draw("HIST");
 	
 	ctt_med_dPhi->cd(3);
-	tt_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	tt_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #geq 300");
 	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
 	tt_dphi_med_300->Draw("HIST");
 
@@ -476,17 +470,17 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	cz_med_dPhi->cd(1);
-	z_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	z_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
 	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
 	z_dphi_med_150_200->Draw("HIST");
 
 	cz_med_dPhi->cd(2);
-	z_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	z_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
 	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
 	z_dphi_med_200_300->Draw("HIST");
 	
 	cz_med_dPhi->cd(3);
-	z_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	z_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #geq 300");
 	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
 	z_dphi_med_300->Draw("HIST");
 
@@ -583,17 +577,17 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	ctt_tight_dPhi->cd(1);
-	tt_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	tt_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
 	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
 	tt_dphi_tight_150_200->Draw("HIST");
 
 	ctt_tight_dPhi->cd(2);
-	tt_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	tt_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
 	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
 	tt_dphi_tight_200_300->Draw("HIST");
 	
 	ctt_tight_dPhi->cd(3);
-	tt_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	tt_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #geq 300");
 	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
 	tt_dphi_tight_300->Draw("HIST");
 
@@ -618,17 +612,17 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	cz_tight_dPhi->cd(1);
-	z_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	z_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
 	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
 	z_dphi_tight_150_200->Draw("HIST");
 
 	cz_tight_dPhi->cd(2);
-	z_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	z_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
 	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
 	z_dphi_tight_200_300->Draw("HIST");
 	
 	cz_tight_dPhi->cd(3);
-	z_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	z_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #geq 300");
 	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
 	z_dphi_tight_300->Draw("HIST");
 
