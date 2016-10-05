@@ -312,31 +312,27 @@ void processSample(TString sample){
 	TCanvas *cz_loose_dPhi = new TCanvas("z_loose_dPhi", "", 2000, 2000);
 	cz_loose_dPhi->cd();
 
+	cz_loose_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dphi_loose_150_200->SetMinimum(0.001);
-
-	z_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	cz_loose_dPhi->cd(1);
+	z_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	//tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
 	z_dphi_loose_150_200->Draw("HIST");
-	z_dphi_loose_200_300->Draw("HIST SAME");
-	z_dphi_loose_300->Draw("HIST SAME");
 
-	//cout<<__LINE__<<endl;
+	cz_loose_dPhi->cd(2);
+	z_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	//tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
+	z_dphi_loose_200_300->Draw("HIST");
 	
-	TLegend *lz_loose_phi;
-	lz_loose_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
-	  
-	lz_loose_phi->SetLineColor(kWhite);  
-	lz_loose_phi->SetShadowColor(kWhite);
-	lz_loose_phi->SetFillColor(kWhite);
-	lz_loose_phi->AddEntry(z_dphi_loose_150_200, "E^{miss}_{T} #in [150, 200)", "f");
-	lz_loose_phi->AddEntry(z_dphi_loose_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	lz_loose_phi->AddEntry(z_dphi_loose_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	lz_loose_phi->Draw("same");
+	cz_loose_dPhi->cd(3);
+	z_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	//tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
+	z_dphi_loose_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 
@@ -415,38 +411,34 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//-------------
-	//TTBar Delta Phi
-	//-------------
+	//------------------
+	// Delta Phi TTBar
+	//------------------
 
 	TCanvas *ctt_med_dPhi = new TCanvas("tt_med_dPhi", "", 2000, 2000);
 	ctt_med_dPhi->cd();
 
+	ctt_med_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	tt_dphi_med_150_200->SetMinimum(0.001);
-
-	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	ctt_med_dPhi->cd(1);
+	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
 	tt_dphi_med_150_200->Draw("HIST");
-	tt_dphi_med_200_300->Draw("HIST SAME");
-	tt_dphi_med_300->Draw("HIST SAME");
 
-	//cout<<__LINE__<<endl;
+	ctt_med_dPhi->cd(2);
+	tt_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
+	tt_dphi_med_200_300->Draw("HIST");
 	
-	TLegend *ltt_med_phi;
-	ltt_med_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
-	  
-	ltt_med_phi->SetLineColor(kWhite);  
-	ltt_med_phi->SetShadowColor(kWhite);
-	ltt_med_phi->SetFillColor(kWhite);
-	ltt_med_phi->AddEntry(tt_dphi_med_150_200, "E^{miss}_{T} #in [150,200)", "f");
-	ltt_med_phi->AddEntry(tt_dphi_med_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	ltt_med_phi->AddEntry(tt_dphi_med_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	ltt_med_phi->Draw("same");
+	ctt_med_dPhi->cd(3);
+	tt_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
+	tt_dphi_med_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 
@@ -454,38 +446,34 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//-------------
-	//Z Delta Phi
-	//-------------
+	//------------------
+	// Delta Phi Z
+	//------------------
 
 	TCanvas *cz_med_dPhi = new TCanvas("z_med_dPhi", "", 2000, 2000);
 	cz_med_dPhi->cd();
 
+	cz_med_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dphi_med_150_200->SetMinimum(0.001);
-
-	z_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	cz_med_dPhi->cd(1);
+	z_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
 	z_dphi_med_150_200->Draw("HIST");
-	z_dphi_med_200_300->Draw("HIST SAME");
-	z_dphi_med_300->Draw("HIST SAME");
 
-	//cout<<__LINE__<<endl;
+	cz_med_dPhi->cd(2);
+	z_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
+	z_dphi_med_200_300->Draw("HIST");
 	
-	TLegend *lz_med_phi;
-	lz_med_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
-	  
-	lz_med_phi->SetLineColor(kWhite);  
-	lz_med_phi->SetShadowColor(kWhite);
-	lz_med_phi->SetFillColor(kWhite);
-	lz_med_phi->AddEntry(z_dphi_med_150_200, "E^{miss}_{T} #in [150,200)", "f");
-	lz_med_phi->AddEntry(z_dphi_med_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	lz_med_phi->AddEntry(z_dphi_med_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	lz_med_phi->Draw("same");
+	cz_med_dPhi->cd(3);
+	z_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
+	z_dphi_med_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 
@@ -565,38 +553,34 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//-------------
-	//TTBar Dilepton Mass
-	//-------------
+	//------------------
+	// Delta Phi TTBar
+	//------------------
 
 	TCanvas *ctt_tight_dPhi = new TCanvas("tt_tight_dPhi", "", 2000, 2000);
 	ctt_tight_dPhi->cd();
 
+	ctt_tight_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	tt_dphi_tight_150_200->SetMinimum(0.001);
-
-	tt_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	ctt_tight_dPhi->cd(1);
+	tt_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
 	tt_dphi_tight_150_200->Draw("HIST");
-	tt_dphi_tight_200_300->Draw("HIST SAME");
-	tt_dphi_tight_300->Draw("HIST SAME");
 
-	//cout<<__LINE__<<endl;
+	ctt_tight_dPhi->cd(2);
+	tt_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
+	tt_dphi_tight_200_300->Draw("HIST");
 	
-	TLegend *ltt_tight_phi;
-	ltt_tight_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
-	  
-	ltt_tight_phi->SetLineColor(kWhite);  
-	ltt_tight_phi->SetShadowColor(kWhite);
-	ltt_tight_phi->SetFillColor(kWhite);
-	ltt_tight_phi->AddEntry(tt_dphi_tight_150_200, "E^{miss}_{T} #in [150, 200)", "f");
-	ltt_tight_phi->AddEntry(tt_dphi_tight_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	ltt_tight_phi->AddEntry(tt_dphi_tight_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	ltt_tight_phi->Draw("same");
+	ctt_tight_dPhi->cd(3);
+	tt_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
+	tt_dphi_tight_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 
@@ -604,45 +588,40 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//-------------
-	//Z Dilepton Mass
-	//-------------
+	//------------------
+	// Delta Phi Z
+	//------------------
 
 	TCanvas *cz_tight_dPhi = new TCanvas("z_tight_dPhi", "", 2000, 2000);
 	cz_tight_dPhi->cd();
 
+	cz_tight_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	z_dphi_tight_150_200->SetMinimum(0.001);
-
-	z_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for Zjets events with 10 GeV Mass Window");
+	cz_tight_dPhi->cd(1);
+	z_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
 	z_dphi_tight_150_200->Draw("HIST");
-	z_dphi_tight_200_300->Draw("HIST SAME");
-	z_dphi_tight_300->Draw("HIST SAME");
 
-	//cout<<__LINE__<<endl;
+	cz_tight_dPhi->cd(2);
+	z_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
+	z_dphi_tight_200_300->Draw("HIST");
 	
-	TLegend *lz_tight_phi;
-	lz_tight_phi = new TLegend(0.73, 0.53, 0.88, 0.58);
-	  
-	lz_tight_phi->SetLineColor(kWhite);  
-	lz_tight_phi->SetShadowColor(kWhite);
-	lz_tight_phi->SetFillColor(kWhite);
-	lz_tight_phi->AddEntry(z_dphi_tight_150_200, "E^{miss}_{T} #in [150,200)", "f");
-	lz_tight_phi->AddEntry(z_dphi_tight_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	lz_tight_phi->AddEntry(z_dphi_tight_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	lz_tight_phi->Draw("same");
+	cz_tight_dPhi->cd(3);
+	z_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
+	z_dphi_tight_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 
 	cz_tight_dPhi->SaveAs("plots/"+sample+"_z_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
-
 }
 
 void DrawPlots(TString sample=""){
