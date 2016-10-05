@@ -285,17 +285,17 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	ctt_loose_dPhi->cd(1);
-	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
+	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
 	//tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
 	tt_dphi_loose_150_200->Draw("HIST");
 
 	ctt_loose_dPhi->cd(2);
-	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
+	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
 	//tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
 	tt_dphi_loose_200_300->Draw("HIST");
 	
 	ctt_loose_dPhi->cd(3);
-	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
+	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
 	//tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
 	tt_dphi_loose_300->Draw("HIST");
 
