@@ -296,7 +296,7 @@ void processSample(TString sample){
 	stack_loose_ttbar->Add(tt_dphi_loose_200_300);
 	stack_loose_ttbar->Add(tt_dphi_loose_300);
 
-	stack_loose_ttbar->Draw();
+	stack_loose_ttbar->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 	
