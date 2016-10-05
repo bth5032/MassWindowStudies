@@ -285,34 +285,19 @@ void processSample(TString sample){
 	gStyle->SetOptStat(kFALSE);
 
 	ctt_loose_dPhi->cd(1);
-	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window; E^{miss}_{T} #in [150,200)");
 	//tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
 	tt_dphi_loose_150_200->Draw("HIST");
 
 	ctt_loose_dPhi->cd(2);
-	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window with E^{miss}_{T} #in [200,300)");
+	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window; E^{miss}_{T} #in [200,300)");
 	//tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
 	tt_dphi_loose_200_300->Draw("HIST");
 	
 	ctt_loose_dPhi->cd(3);
-	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
+	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window; ; E^{miss}_{T} #geq 300");
 	//tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
 	tt_dphi_loose_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-	
-	ctt_loose_dPhi->cd(0);
-	TLegend *ltt_loose_phi;
-	ltt_loose_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
-	  
-	ltt_loose_phi->SetLineColor(kWhite);  
-	ltt_loose_phi->SetShadowColor(kWhite);
-	ltt_loose_phi->SetFillColor(kWhite);
-	ltt_loose_phi->AddEntry(tt_dphi_loose_150_200, "E^{miss}_{T} #in [150,300)", "f");
-	ltt_loose_phi->AddEntry(tt_dphi_loose_200_300, "E^{miss}_{T} #in [200,300)", "f");
-	ltt_loose_phi->AddEntry(tt_dphi_loose_300, "E^{miss}_{T} #geq 300", "f");
-	  
-	ltt_loose_phi->Draw("same");
 
 	//cout<<__LINE__<<endl;
 
