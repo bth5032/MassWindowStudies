@@ -68,6 +68,7 @@ void processSample(TString sample){
 		exit(1);
 	}
 
+	
 	//cout<<__LINE__<<endl;
 
 //===========================
@@ -106,8 +107,11 @@ void processSample(TString sample){
 	//cout<<__LINE__<<endl;
 
 	tt_dphi_loose_150_200->SetLineColor(46);
+	tt_dphi_loose_150_200->SetFillColor(46);
 	tt_dphi_loose_200_300->SetLineColor(8);
+	tt_dphi_loose_200_300->SetFillColor(8);
 	tt_dphi_loose_300->SetLineColor(9);
+	tt_dphi_loose_300->SetFillColor(9);
 
 	tt_dphi_med_150_200->SetLineColor(46);
 	tt_dphi_med_200_300->SetLineColor(8);
@@ -275,15 +279,24 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	gPad->SetLogy(1);
+	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
 	tt_dphi_loose_150_200->SetMinimum(0.001);
 
+	THStack *stack_loose_ttbar = new THStack("stack_loose_ttbar");
+
 	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
-	tt_dphi_loose_150_200->Draw("HIST");
-	tt_dphi_loose_200_300->Draw("HIST SAME");
-	tt_dphi_loose_300->Draw("HIST SAME");
+	
+	tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
+	tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
+	tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
+
+	stack_loose_ttbar->Add(tt_dphi_loose_150_200);
+	stack_loose_ttbar->Add(tt_dphi_loose_200_300);
+	stack_loose_ttbar->Add(tt_dphi_loose_300);
+
+	stack_loose_ttbar->Draw();
 
 	//cout<<__LINE__<<endl;
 	
