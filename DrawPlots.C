@@ -631,6 +631,18 @@ void processSample(TString sample){
 	cz_tight_dPhi->SaveAs("plots/"+sample+"_z_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
+
+//========================
+// Self Destruct!
+//========================
+cz_tight_dPhi->~TCanvas();
+cz_med_dPhi->~TCanvas();
+cz_loose_dPhi->~TCanvas();
+
+ctt_tight_dPhi->~TCanvas();
+ctt_med_dPhi->~TCanvas();
+ctt_loose_dPhi->~TCanvas();
+
 }
 
 void DrawPlots(TString sample=""){
