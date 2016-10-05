@@ -277,29 +277,31 @@ void processSample(TString sample){
 	TCanvas *ctt_loose_dPhi = new TCanvas("tt_loose_dPhi", "", 2000, 2000);
 	ctt_loose_dPhi->cd();
 
+	ctt_loose_dPhi->Divide(1,3);	
+
 	//cout<<__LINE__<<endl;
 
 	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	tt_dphi_loose_150_200->SetMinimum(0.001);
-
-	THStack *stack_loose_ttbar = new THStack("stack_loose_ttbar", "#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
-
+	ctt_loose_dPhi->cd(1);
 	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
-	
 	tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
+	tt_dphi_loose_150_200->Draw("HIST");
+
+	ctt_loose_dPhi->cd(2);
+	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window with E^{miss}_{T} #in [200,300)");
 	tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
+	tt_dphi_loose_200_300->Draw("HIST");
+	
+	ctt_loose_dPhi->cd(3);
+	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, ll) for t#bar{t} events with 10 GeV Mass Window");
 	tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
-
-	stack_loose_ttbar->Add(tt_dphi_loose_150_200);
-	stack_loose_ttbar->Add(tt_dphi_loose_200_300);
-	stack_loose_ttbar->Add(tt_dphi_loose_300);
-
-	stack_loose_ttbar->Draw("HIST");
+	tt_dphi_loose_300->Draw("HIST");
 
 	//cout<<__LINE__<<endl;
 	
+	ctt_loose_dPhi->cd(0);
 	TLegend *ltt_loose_phi;
 	ltt_loose_phi = new TLegend(0.73, 0.33, 0.88, 0.38);
 	  
