@@ -3,6 +3,7 @@
 
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
+	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/"
 
 //=================
 // Define Files
@@ -242,7 +243,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c1->SaveAs("plots/"+sample+"_loose_MET.png");
+	c1->SaveAs(output_dir+sample+"_loose_MET.png");
 
 	//-------------
 	//Dilepton Mass
@@ -275,7 +276,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c2->SaveAs("plots/"+sample+"_loose_dilmass.png");
+	c2->SaveAs(output_dir+sample+"_loose_dilmass.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -310,7 +311,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	ctt_loose_dPhi->SaveAs("plots/"+sample+"_tt_loose_dPhi.png");
+	ctt_loose_dPhi->SaveAs(output_dir+sample+"_tt_loose_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -345,7 +346,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	cz_loose_dPhi->SaveAs("plots/"+sample+"_z_loose_dPhi.png");
+	cz_loose_dPhi->SaveAs(output_dir+sample+"_z_loose_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -383,7 +384,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c3->SaveAs("plots/"+sample+"_med_MET.png");
+	c3->SaveAs(output_dir+sample+"_med_MET.png");
 
 	//-------------
 	//Dilepton Mass
@@ -416,7 +417,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c4->SaveAs("plots/"+sample+"_med_dilmass.png");
+	c4->SaveAs(output_dir+sample+"_med_dilmass.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -451,7 +452,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	ctt_med_dPhi->SaveAs("plots/"+sample+"_tt_med_dPhi.png");
+	ctt_med_dPhi->SaveAs(output_dir+sample+"_tt_med_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -486,7 +487,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	cz_med_dPhi->SaveAs("plots/"+sample+"_z_med_dPhi.png");
+	cz_med_dPhi->SaveAs(output_dir+sample+"_z_med_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -525,7 +526,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c5->SaveAs("plots/"+sample+"_tight_MET.png");
+	c5->SaveAs(output_dir+sample+"_tight_MET.png");
 
 	//-------------
 	//Dilepton Mass
@@ -558,7 +559,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	c6->SaveAs("plots/"+sample+"_tight_dilmass.png");
+	c6->SaveAs(output_dir+sample+"_tight_dilmass.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -593,7 +594,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	ctt_tight_dPhi->SaveAs("plots/"+sample+"_tt_tight_dPhi.png");
+	ctt_tight_dPhi->SaveAs(output_dir+sample+"_tt_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -628,7 +629,7 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	cz_tight_dPhi->SaveAs("plots/"+sample+"_z_tight_dPhi.png");
+	cz_tight_dPhi->SaveAs(output_dir+sample+"_z_tight_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
