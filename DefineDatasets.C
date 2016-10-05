@@ -101,7 +101,8 @@ TChain * getTTBarMC(TString data_set) {
 
   if (data_set.Contains("inclusive")){
     //Inclusive HT
-    ch_ttbar->Add("/nfs-7/userdata/ZMEToutput/output/ZMETbabies/V08-11-04_ichep/ttbar_dilep_mgmlm*");
+    //ch_ttbar->Add("/nfs-7/userdata/ZMEToutput/output/ZMETbabies/V08-11-04_ichep/ttbar_dilep_mgmlm*");
+    ch_ttbar->Add("/nfs-7/userdata/ZMEToutput/output/ZMETbabies/V08-11-04_ichep/ttbar_dilep_powheg*");
   }
 
   if (data_set.Contains("SingleLepton")){
