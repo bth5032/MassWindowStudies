@@ -643,6 +643,31 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 	cout<<endl;
 	//Draw Table----------------------------------------------------------------------------
 
+	//Write Latex Table----------------------------------------------------------------------------
+	cout<<"Tight Window: "<<endl;
+	cout<<"\\begin{tabular}{ l | l } \hline Sample &"
+	for (int i = 1; i<z_met_tight->GetNbinsX()+1; i++){
+		if (i !=z_met_tight->GetNbinsX()){
+			cout<<z_met_tight->GetBinLowEdge(i)<<"-"<<z_met_tight->GetBinLowEdge(i+1)<<" & ";
+		}
+		else{
+			cout<<z_met_tight->GetBinLowEdge(i)<<"+";	
+		}
+	}
+	cout<<" \\\\ \hline \\\\";
+	cout<<" ZJets & ";
+	for (int i = 1; i<z_met_tight->GetNbinsX()+1; i++){
+		cout<<z_met_tight->GetBinContent(i)<<" & ";
+	}
+	cout<<" \\\\ \hline \\\\";
+
+	cout<<" TTbar & ";
+	for (int i = 1; i<tt_met_tight->GetNbinsX()+1; i++){
+		cout<<tt_met_tight->GetBinContent(i)<<" & ";
+	}
+	cout<<" \\\\ \hline \\end{tabular}";
+	//Write Latex Table----------------------------------------------------------------------------
+
 
 	//cout<<__LINE__<<endl;
 	
