@@ -87,6 +87,10 @@ void processSample(TString sample){
 	tt_met_med->SetLineColor(kBlue);
 	tt_met_loose->SetLineColor(kBlue);
 
+	tt_met_tight->SetLineWidth(6);
+	tt_met_med->SetLineWidth(6);
+	tt_met_loose->SetLineWidth(6);
+
 	
 	//TTBar dPHI Plots
 	TH1D * tt_dphi_loose_150_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_loose_150_200");
@@ -138,6 +142,10 @@ void processSample(TString sample){
 	z_met_tight->SetLineColor(kRed);
 	z_met_med->SetLineColor(kRed);
 	z_met_loose->SetLineColor(kRed);
+
+	z_met_tight->SetLineWidth(6);
+	z_met_med->SetLineWidth(6);
+	z_met_loose->SetLineWidth(6);
 
 	//cout<<__LINE__<<endl;
 
@@ -198,6 +206,10 @@ void processSample(TString sample){
 	z_dilmass_tight->SetLineColor(kRed);
 	z_dilmass_med->SetLineColor(kRed);
 	z_dilmass_loose->SetLineColor(kRed);
+	
+	z_dilmass_tight->SetLineWidth(6);
+	z_dilmass_med->SetLineWidth(6);
+	z_dilmass_loose->SetLineWidth(6);
 
 	/*z_dilmass_tight->SetMinimum(0);
 	z_dilmass_med->SetMinimum(0);
@@ -206,6 +218,10 @@ void processSample(TString sample){
 	tt_dilmass_tight->SetLineColor(kBlue);
 	tt_dilmass_med->SetLineColor(kBlue);
 	tt_dilmass_loose->SetLineColor(kBlue);
+	
+	tt_dilmass_tight->SetLineWidth(6);
+	tt_dilmass_med->SetLineWidth(6);
+	tt_dilmass_loose->SetLineWidth(6);
 
 	//cout<<__LINE__<<endl;
 
