@@ -3,7 +3,7 @@
 
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
-	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/NoOverFlow/";
+	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/";
 
 //=================
 // Define Files
@@ -231,7 +231,7 @@ void processSample(TString sample){
 
 double bc, of; //bin content and overflow
 
-/*bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
+bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
 of = z_met_loose->GetBinContent(z_met_loose->FindBin(501));
 z_met_loose->SetBinContent(z_met_loose->FindBin(450), bc+of);
 
@@ -253,7 +253,7 @@ tt_met_med->SetBinContent(tt_met_med->FindBin(450), bc+of);
 
 bc = tt_met_tight->GetBinContent(tt_met_tight->FindBin(450));
 of = tt_met_tight->GetBinContent(tt_met_tight->FindBin(501));
-tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
+tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 
 //===============================
 //Draw Loose Plots
@@ -271,8 +271,35 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_met_loose->SetTitle("E^{miss}_{T} for 10 GeV Window");
+	z_met_loose->SetXTitle("E^{miss}_{T}");
+	z_met_loose->SetXTitle("Count");
 	z_met_loose->Draw("HIST");
 	tt_met_loose->Draw("HIST SAME");
+
+	//Draw Table----------------------------------------------------------------------------
+	cout<<"Tight Window: "<<endl;
+	cout<<"TABLE Sample ";
+	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
+		if (i !=z_met_loose->GetNbinsX()){
+			cout<<z_met_loose->GetBinLowEdge(i)<<"-"<<z_met_loose->GetBinLowEdge(i+1)<<" ";
+		}
+		else{
+			cout<<z_met_loose->GetBinLowEdge(i)<<"+";	
+		}
+	}
+	cout<<endl;
+	cout<<"TABLE ZJets";
+	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
+		cout<<z_met_loose->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+
+	cout<<"TABLE TTbar";
+	for (int i = 1; i<tt_met_loose->GetNbinsX()+1; i++){
+		cout<<tt_met_loose->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+	//Draw Table----------------------------------------------------------------------------
 
 	//cout<<__LINE__<<endl;
 	
@@ -304,6 +331,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_loose->SetTitle("Dilepton Mass for 10 GeV Window");
+	z_dilmass_loose->SetXTitle("M_{ll}");
+	z_dilmass_loose->SetXTitle("Count");
 	z_dilmass_loose->Draw("HIST");
 	tt_dilmass_loose->Draw("HIST SAME");
 
@@ -412,8 +441,36 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_met_med->SetTitle("E^{miss}_{T} for 5 GeV Window");
+	z_met_med->SetXTitle("E^{miss}_{T}");
+	z_met_med->SetXTitle("Count");
 	z_met_med->Draw("HIST");
 	tt_met_med->Draw("HIST SAME");
+
+	//Draw Table----------------------------------------------------------------------------
+	cout<<"Tight Window: "<<endl;
+	cout<<"TABLE Sample ";
+	for (int i = 1; i<z_met_med->GetNbinsX()+1; i++){
+		if (i !=z_met_med->GetNbinsX()){
+			cout<<z_met_med->GetBinLowEdge(i)<<"-"<<z_met_med->GetBinLowEdge(i+1)<<" ";
+		}
+		else{
+			cout<<z_met_med->GetBinLowEdge(i)<<"+";	
+		}
+	}
+	cout<<endl;
+	cout<<"TABLE ZJets";
+	for (int i = 1; i<z_met_med->GetNbinsX()+1; i++){
+		cout<<z_met_med->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+
+	cout<<"TABLE TTbar";
+	for (int i = 1; i<tt_met_med->GetNbinsX()+1; i++){
+		cout<<tt_met_med->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+	//Draw Table----------------------------------------------------------------------------
+
 
 	//cout<<__LINE__<<endl;
 	
@@ -445,6 +502,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_med->SetTitle("Dilepton Mass for 5 GeV Window");
+	z_dilmass_med->SetXTitle("M_{ll}");
+	z_dilmass_med->SetXTitle("Count");
 	z_dilmass_med->Draw("HIST");
 	tt_dilmass_med->Draw("HIST SAME");
 
@@ -554,8 +613,36 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_met_tight->SetTitle("E^{miss}_{T} for 2.5 GeV Window");
+	z_met_tight->SetXTitle("E^{miss}_{T}");
+	z_met_tight->SetXTitle("Count");
 	z_met_tight->Draw("HIST");
 	tt_met_tight->Draw("HIST SAME");
+
+	//Draw Table----------------------------------------------------------------------------
+	cout<<"Tight Window: "<<endl;
+	cout<<"TABLE Sample ";
+	for (int i = 1; i<z_met_tight->GetNbinsX()+1; i++){
+		if (i !=z_met_tight->GetNbinsX()){
+			cout<<z_met_tight->GetBinLowEdge(i)<<"-"<<z_met_tight->GetBinLowEdge(i+1)<<" ";
+		}
+		else{
+			cout<<z_met_tight->GetBinLowEdge(i)<<"+";	
+		}
+	}
+	cout<<endl;
+	cout<<"TABLE ZJets";
+	for (int i = 1; i<z_met_tight->GetNbinsX()+1; i++){
+		cout<<z_met_tight->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+
+	cout<<"TABLE TTbar";
+	for (int i = 1; i<tt_met_tight->GetNbinsX()+1; i++){
+		cout<<tt_met_tight->GetBinContent(i)<<" ";
+	}
+	cout<<endl;
+	//Draw Table----------------------------------------------------------------------------
+
 
 	//cout<<__LINE__<<endl;
 	
@@ -587,6 +674,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 	gStyle->SetOptStat(kFALSE);
 
 	z_dilmass_tight->SetTitle("Dilepton Mass for 2.5 GeV Window");
+	z_dilmass_tight->SetXTitle("M_{ll}");
+	z_dilmass_tight->SetXTitle("Count");
 	z_dilmass_tight->Draw("HIST");
 	tt_dilmass_tight->Draw("HIST SAME");
 
