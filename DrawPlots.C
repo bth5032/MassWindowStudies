@@ -3,7 +3,7 @@
 
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
-	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/";
+	TString output_dir = "/home/users/bhashemi/public_html/MassWindowStudies2016/NoOverFlow/";
 
 //=================
 // Define Files
@@ -231,7 +231,7 @@ void processSample(TString sample){
 
 double bc, of; //bin content and overflow
 
-bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
+/*bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
 of = z_met_loose->GetBinContent(z_met_loose->FindBin(501));
 z_met_loose->SetBinContent(z_met_loose->FindBin(450), bc+of);
 
@@ -253,7 +253,7 @@ tt_met_med->SetBinContent(tt_met_med->FindBin(450), bc+of);
 
 bc = tt_met_tight->GetBinContent(tt_met_tight->FindBin(450));
 of = tt_met_tight->GetBinContent(tt_met_tight->FindBin(501));
-tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
+tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);*/
 
 //===============================
 //Draw Loose Plots
