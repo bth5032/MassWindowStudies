@@ -301,8 +301,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 	cout<<endl;
 	//Draw Table----------------------------------------------------------------------------
 	//Write Latex Table----------------------------------------------------------------------------
-	cout<<"Tight Window: "<<endl;
-	cout<<"\\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
+	cout<<"LATEX loose Window: "<<endl;
+	cout<<"LATEX \\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
 	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
 		if (i !=z_met_loose->GetNbinsX()){
 			cout<<z_met_loose->GetBinLowEdge(i)<<"-"<<z_met_loose->GetBinLowEdge(i+1)<<" & ";
@@ -502,8 +502,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 	cout<<endl;
 	//Draw Table----------------------------------------------------------------------------
 	//Write Latex Table----------------------------------------------------------------------------
-	cout<<"Tight Window: "<<endl;
-	cout<<"\\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
+	cout<<"LATEX Med Window: "<<endl;
+	cout<<"LATEX \\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
 	for (int i = 1; i<z_met_med->GetNbinsX()+1; i++){
 		if (i !=z_met_med->GetNbinsX()){
 			cout<<z_met_med->GetBinLowEdge(i)<<"-"<<z_met_med->GetBinLowEdge(i+1)<<" & ";
@@ -706,8 +706,8 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 	//Draw Table----------------------------------------------------------------------------
 
 	//Write Latex Table----------------------------------------------------------------------------
-	cout<<"Tight Window: "<<endl;
-	cout<<"\\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
+	cout<<"LATEX Tight Window: "<<endl;
+	cout<<"LATEX \\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
 	for (int i = 1; i<z_met_tight->GetNbinsX()+1; i++){
 		if (i !=z_met_tight->GetNbinsX()){
 			cout<<z_met_tight->GetBinLowEdge(i)<<"-"<<z_met_tight->GetBinLowEdge(i+1)<<" & ";
