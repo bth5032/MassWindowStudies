@@ -298,7 +298,7 @@ void processSample(TString sample){
 	z_met_loose->Draw("HIST");
 	tt_met_loose->Draw("HIST SAME");
 
-	cout<<setprecision(4);
+	//cout<<setprecision(4);
 
 	//Draw Table----------------------------------------------------------------------------
 	cout<<"Tight Window: "<<endl;
