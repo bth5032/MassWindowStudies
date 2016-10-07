@@ -231,31 +231,39 @@ void processSample(TString sample){
 //Add Overflow to MET Plots
 //===============================
 
-double bc, of; //bin content and overflow
+	double bc, of; //bin content and overflow
 
-bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
-of = z_met_loose->GetBinContent(z_met_loose->FindBin(501));
-z_met_loose->SetBinContent(z_met_loose->FindBin(450), bc+of);
+	bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
+	of = z_met_loose->GetBinContent(z_met_loose->FindBin(501));
+	z_met_loose->SetBinContent(z_met_loose->FindBin(450), bc+of);
 
-bc = z_met_med->GetBinContent(z_met_med->FindBin(450));
-of = z_met_med->GetBinContent(z_met_med->FindBin(501));
-z_met_med->SetBinContent(z_met_med->FindBin(450), bc+of);
+	bc = z_met_med->GetBinContent(z_met_med->FindBin(450));
+	of = z_met_med->GetBinContent(z_met_med->FindBin(501));
+	z_met_med->SetBinContent(z_met_med->FindBin(450), bc+of);
 
-bc = z_met_tight->GetBinContent(z_met_tight->FindBin(450));
-of = z_met_tight->GetBinContent(z_met_tight->FindBin(501));
-z_met_tight->SetBinContent(z_met_tight->FindBin(450), bc+of);
+	bc = z_met_tight->GetBinContent(z_met_tight->FindBin(450));
+	of = z_met_tight->GetBinContent(z_met_tight->FindBin(501));
+	z_met_tight->SetBinContent(z_met_tight->FindBin(450), bc+of);
 
-bc = tt_met_loose->GetBinContent(tt_met_loose->FindBin(450));
-of = tt_met_loose->GetBinContent(tt_met_loose->FindBin(501));
-tt_met_loose->SetBinContent(tt_met_loose->FindBin(450), bc+of);
+	bc = tt_met_loose->GetBinContent(tt_met_loose->FindBin(450));
+	of = tt_met_loose->GetBinContent(tt_met_loose->FindBin(501));
+	tt_met_loose->SetBinContent(tt_met_loose->FindBin(450), bc+of);
 
-bc = tt_met_med->GetBinContent(tt_met_med->FindBin(450));
-of = tt_met_med->GetBinContent(tt_met_med->FindBin(501));
-tt_met_med->SetBinContent(tt_met_med->FindBin(450), bc+of);
+	bc = tt_met_med->GetBinContent(tt_met_med->FindBin(450));
+	of = tt_met_med->GetBinContent(tt_met_med->FindBin(501));
+	tt_met_med->SetBinContent(tt_met_med->FindBin(450), bc+of);
 
-bc = tt_met_tight->GetBinContent(tt_met_tight->FindBin(450));
-of = tt_met_tight->GetBinContent(tt_met_tight->FindBin(501));
-tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
+	bc = tt_met_tight->GetBinContent(tt_met_tight->FindBin(450));
+	of = tt_met_tight->GetBinContent(tt_met_tight->FindBin(501));
+	tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
+
+
+	cout<<"88.5-93.5 GeV: TTBar="<<tt_dilmass_tight()->Integral()<<" Drell-Yan="<<z_dilmass_tight()->Integral()<<endl;
+	cout<<"86-96 GeV: TTBar="<<tt_dilmass_med()->Integral()<<" Drell-Yan="<<z_dilmass_med()->Integral()<<endl;
+	cout<<"81-101 GeV: TTBar="<<tt_dilmass_loose()->Integral()<<" Drell-Yan="<<z_dilmass_loose()->Integral()<<endl;
+	cout<<" ";
+	cout<<endl;
+
 
 //===============================
 //Draw Loose Plots
