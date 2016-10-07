@@ -258,9 +258,9 @@ void processSample(TString sample){
 	tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 
 
-	cout<<"88.5-93.5 GeV: TTBar="<<tt_dilmass_tight()->Integral()<<" Drell-Yan="<<z_dilmass_tight()->Integral()<<endl;
-	cout<<"86-96 GeV: TTBar="<<tt_dilmass_med()->Integral()<<" Drell-Yan="<<z_dilmass_med()->Integral()<<endl;
-	cout<<"81-101 GeV: TTBar="<<tt_dilmass_loose()->Integral()<<" Drell-Yan="<<z_dilmass_loose()->Integral()<<endl;
+	cout<<"88.5-93.5 GeV: TTBar="<<tt_dilmass_tight->Integral()<<" Drell-Yan="<<z_dilmass_tight->Integral()<<endl;
+	cout<<"86-96 GeV: TTBar="<<tt_dilmass_med->Integral()<<" Drell-Yan="<<z_dilmass_med->Integral()<<endl;
+	cout<<"81-101 GeV: TTBar="<<tt_dilmass_loose->Integral()<<" Drell-Yan="<<z_dilmass_loose->Integral()<<endl;
 	cout<<" ";
 	cout<<endl;
 
