@@ -1,5 +1,7 @@
 #include "TString.h"
 #include <vector>
+#include <iostream>
+#include <iomanip>
 
 void processSample(TString sample){
 	TString dir_loc = "/nfs-7/userdata/bobak/MassWindowStudies/";
@@ -281,22 +283,22 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 	cout<<"TABLE Sample ";
 	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
 		if (i !=z_met_loose->GetNbinsX()){
-			cout<<z_met_loose->GetBinLowEdge(i)<<"-"<<z_met_loose->GetBinLowEdge(i+1)<<" ";
+			cout<<setprecision(4)<<z_met_loose->GetBinLowEdge(i)<<"-"<<z_met_loose->GetBinLowEdge(i+1)<<" ";
 		}
 		else{
-			cout<<z_met_loose->GetBinLowEdge(i)<<"+";	
+			cout<<setprecision(4)<<z_met_loose->GetBinLowEdge(i)<<"+";	
 		}
 	}
 	cout<<endl;
 	cout<<"TABLE ZJets ";
 	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
-		cout<<z_met_loose->GetBinContent(i)<<" ";
+		cout<<setprecision(4)<<z_met_loose->GetBinContent(i)<<" ";
 	}
 	cout<<endl;
 
 	cout<<"TABLE TTbar ";
 	for (int i = 1; i<tt_met_loose->GetNbinsX()+1; i++){
-		cout<<tt_met_loose->GetBinContent(i)<<" ";
+		cout<<setprecision(4)<<tt_met_loose->GetBinContent(i)<<" ";
 	}
 	cout<<endl;
 	//Draw Table----------------------------------------------------------------------------
@@ -308,13 +310,13 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 			cout<<z_met_loose->GetBinLowEdge(i)<<"-"<<z_met_loose->GetBinLowEdge(i+1)<<" & ";
 		}
 		else{
-			cout<<z_met_loose->GetBinLowEdge(i)<<"+";	
+			cout<<setprecision(4)<<z_met_loose->GetBinLowEdge(i)<<"+";	
 		}
 	}
 	cout<<" \\\\ \\hline ";
 	cout<<" ZJets & ";
 	for (int i = 1; i<z_met_loose->GetNbinsX()+1; i++){
-		cout<<z_met_loose->GetBinContent(i)<<"+/-"<<z_met_loose->GetBinError(i);
+		cout<<setprecision(4)<<z_met_loose->GetBinContent(i)<<"+/-"<<z_met_loose->GetBinError(i);
 
 		if (i !=z_met_loose->GetNbinsX()){
 			cout<<" & ";
@@ -324,7 +326,7 @@ tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
 
 	cout<<" TTbar & ";
 	for (int i = 1; i<tt_met_loose->GetNbinsX()+1; i++){
-		cout<<tt_met_loose->GetBinContent(i)<<"+/-"<<tt_met_loose->GetBinError(i);
+		cout<<setprecision(4)<<tt_met_loose->GetBinContent(i)<<"+/-"<<tt_met_loose->GetBinError(i);
 		if (i !=tt_met_loose->GetNbinsX()){
 			cout<<" & ";
 		}
