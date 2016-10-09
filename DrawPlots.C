@@ -79,9 +79,9 @@ void processSample(TString sample){
 //===========================
 
 	//TTBar MET Plots
-	TH1D * tt_met_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_type1MET_widebin"))->Clone("tt_met_loose");
-	TH1D * tt_met_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_type1MET_widebin"))->Clone("tt_met_med");
-	TH1D * tt_met_tight = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_type1MET_widebin"))->Clone("tt_met_tight");
+	TH1D * tt_met_loose = (TH1D*) ((TH1D*) files[0]->Get("ttbar_type1MET_widebin"))->Clone("tt_met_loose");
+	TH1D * tt_met_med = (TH1D*) ((TH1D*) files[1]->Get("ttbar_type1MET_widebin"))->Clone("tt_met_med");
+	TH1D * tt_met_tight = (TH1D*) ((TH1D*) files[2]->Get("ttbar_type1MET_widebin"))->Clone("tt_met_tight");
 
 	//cout<<__LINE__<<endl;
 
@@ -92,47 +92,6 @@ void processSample(TString sample){
 	tt_met_tight->SetLineWidth(6);
 	tt_met_med->SetLineWidth(6);
 	tt_met_loose->SetLineWidth(6);
-
-	
-	//TTBar dPHI Plots
-	TH1D * tt_dphi_loose_150_200 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_loose_150_200");
-	TH1D * tt_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_loose_200_300");
-	TH1D * tt_dphi_loose_300 = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_DeltaPhi_lep_met_300"))->Clone("tt_dphi_loose_300");
-
-	//cout<<__LINE__<<endl;
-
-	TH1D * tt_dphi_med_150_200 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_med_150_200");
-	TH1D * tt_dphi_med_200_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_med_200_300");
-	TH1D * tt_dphi_med_300 = (TH1D*) ((TH1D*) files[1]->Get("TT_med_DeltaPhi_lep_met_300"))->Clone("tt_dphi_med_300");
-
-	//cout<<__LINE__<<endl;
-
-	TH1D * tt_dphi_tight_150_200 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_150_200"))->Clone("tt_dphi_tight_150_200");
-	TH1D * tt_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_200_300"))->Clone("tt_dphi_tight_200_300");
-	TH1D * tt_dphi_tight_300 = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_DeltaPhi_lep_met_300"))->Clone("tt_dphi_tight_300");
-
-	//cout<<__LINE__<<endl;
-
-	tt_dphi_loose_150_200->SetLineColor(46);
-	tt_dphi_loose_150_200->SetFillColor(46);
-	tt_dphi_loose_200_300->SetLineColor(8);
-	tt_dphi_loose_200_300->SetFillColor(8);
-	tt_dphi_loose_300->SetLineColor(9);
-	tt_dphi_loose_300->SetFillColor(9);
-
-	tt_dphi_med_150_200->SetLineColor(46);
-	tt_dphi_med_150_200->SetFillColor(46);
-	tt_dphi_med_200_300->SetLineColor(8);
-	tt_dphi_med_200_300->SetFillColor(8);
-	tt_dphi_med_300->SetLineColor(9);
-	tt_dphi_med_300->SetFillColor(9);
-
-	tt_dphi_tight_150_200->SetLineColor(46);
-	tt_dphi_tight_150_200->SetFillColor(46);
-	tt_dphi_tight_200_300->SetLineColor(8);
-	tt_dphi_tight_200_300->SetFillColor(8);
-	tt_dphi_tight_300->SetLineColor(9);
-	tt_dphi_tight_300->SetFillColor(9);
 
 	//cout<<__LINE__<<endl;
 
@@ -151,51 +110,9 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	// Z dPHI Plots
-	TH1D * z_dphi_loose_150_200 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_loose_150_200");
-	TH1D * z_dphi_loose_200_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_loose_200_300");
-	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) files[3]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
-
-	//cout<<__LINE__<<endl;
-
-	TH1D * z_dphi_med_150_200 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_med_150_200");
-	TH1D * z_dphi_med_200_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_med_200_300");
-	TH1D * z_dphi_med_300 = (TH1D*) ((TH1D*) files[4]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_med_300");
-
-	//cout<<__LINE__<<endl;
-
-	TH1D * z_dphi_tight_150_200 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_150_200"))->Clone("z_dphi_tight_150_200");
-	TH1D * z_dphi_tight_200_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_200_300"))->Clone("z_dphi_tight_200_300");
-	TH1D * z_dphi_tight_300 = (TH1D*) ((TH1D*) files[5]->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_tight_300");
-
-	//cout<<__LINE__<<endl;
-
-	z_dphi_loose_150_200->SetLineColor(46);
-	z_dphi_loose_150_200->SetFillColor(46);
-	z_dphi_loose_200_300->SetLineColor(8);
-	z_dphi_loose_200_300->SetFillColor(8);
-	z_dphi_loose_300->SetLineColor(9);
-	z_dphi_loose_300->SetFillColor(9);
-
-	z_dphi_med_150_200->SetLineColor(46);
-	z_dphi_med_150_200->SetFillColor(46);
-	z_dphi_med_200_300->SetLineColor(8);
-	z_dphi_med_200_300->SetFillColor(8);
-	z_dphi_med_300->SetLineColor(9);
-	z_dphi_med_300->SetFillColor(9);
-
-	z_dphi_tight_150_200->SetLineColor(46);
-	z_dphi_tight_150_200->SetFillColor(46);
-	z_dphi_tight_200_300->SetLineColor(8);
-	z_dphi_tight_200_300->SetFillColor(8);
-	z_dphi_tight_300->SetLineColor(9);
-	z_dphi_tight_300->SetFillColor(9);
-
-	//cout<<__LINE__<<endl;
-
-	TH1D * tt_dilmass_loose = (TH1D*) ((TH1D*) files[0]->Get("TT_Base_dilmass"))->Clone("tt_dilmass_loose");
-	TH1D * tt_dilmass_med = (TH1D*) ((TH1D*) files[1]->Get("TT_med_dilmass"))->Clone("tt_dilmass_med");
-	TH1D * tt_dilmass_tight = (TH1D*) ((TH1D*) files[2]->Get("TT_tight_dilmass"))->Clone("tt_dilmass_tight");
+	TH1D * tt_dilmass_loose = (TH1D*) ((TH1D*) files[0]->Get("ttbar_dilmass"))->Clone("tt_dilmass_loose");
+	TH1D * tt_dilmass_med = (TH1D*) ((TH1D*) files[1]->Get("ttbar_dilmass"))->Clone("tt_dilmass_med");
+	TH1D * tt_dilmass_tight = (TH1D*) ((TH1D*) files[2]->Get("ttbar_dilmass"))->Clone("tt_dilmass_tight");
 
 	//cout<<__LINE__<<endl;
 
@@ -410,76 +327,6 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//------------------
-	// Delta Phi TTBar
-	//------------------
-
-	TCanvas *ctt_loose_dPhi = new TCanvas("tt_loose_dPhi", "", 2000, 2000);
-	ctt_loose_dPhi->cd();
-
-	ctt_loose_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	ctt_loose_dPhi->cd(1);
-	tt_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
-	tt_dphi_loose_150_200->Draw("HIST");
-
-	ctt_loose_dPhi->cd(2);
-	tt_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
-	tt_dphi_loose_200_300->Draw("HIST");
-	
-	ctt_loose_dPhi->cd(3);
-	tt_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
-	tt_dphi_loose_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	ctt_loose_dPhi->SaveAs(output_dir+sample+"_tt_loose_dPhi.png");
-
-	//cout<<__LINE__<<endl;
-
-	//------------------
-	// Delta Phi Z
-	//------------------
-
-	TCanvas *cz_loose_dPhi = new TCanvas("z_loose_dPhi", "", 2000, 2000);
-	cz_loose_dPhi->cd();
-
-	cz_loose_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	cz_loose_dPhi->cd(1);
-	z_dphi_loose_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_loose_150_200->Scale(1/tt_dphi_loose_150_200->Integral());
-	z_dphi_loose_150_200->Draw("HIST");
-
-	cz_loose_dPhi->cd(2);
-	z_dphi_loose_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_loose_200_300->Scale(1/tt_dphi_loose_200_300->Integral());
-	z_dphi_loose_200_300->Draw("HIST");
-	
-	cz_loose_dPhi->cd(3);
-	z_dphi_loose_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 10 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_loose_300->Scale(1/tt_dphi_loose_300->Integral());
-	z_dphi_loose_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	cz_loose_dPhi->SaveAs(output_dir+sample+"_z_loose_dPhi.png");
-
-	//cout<<__LINE__<<endl;
-
 //===============================
 //Draw Medium Plots
 //===============================
@@ -613,75 +460,6 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//------------------
-	// Delta Phi TTBar
-	//------------------
-
-	TCanvas *ctt_med_dPhi = new TCanvas("tt_med_dPhi", "", 2000, 2000);
-	ctt_med_dPhi->cd();
-
-	ctt_med_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	ctt_med_dPhi->cd(1);
-	tt_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
-	tt_dphi_med_150_200->Draw("HIST");
-
-	ctt_med_dPhi->cd(2);
-	tt_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
-	tt_dphi_med_200_300->Draw("HIST");
-	
-	ctt_med_dPhi->cd(3);
-	tt_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 5 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
-	tt_dphi_med_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	ctt_med_dPhi->SaveAs(output_dir+sample+"_tt_med_dPhi.png");
-
-	//cout<<__LINE__<<endl;
-
-	//------------------
-	// Delta Phi Z
-	//------------------
-
-	TCanvas *cz_med_dPhi = new TCanvas("z_med_dPhi", "", 2000, 2000);
-	cz_med_dPhi->cd();
-
-	cz_med_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	cz_med_dPhi->cd(1);
-	z_dphi_med_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_med_150_200->Scale(1/tt_dphi_med_150_200->Integral());
-	z_dphi_med_150_200->Draw("HIST");
-
-	cz_med_dPhi->cd(2);
-	z_dphi_med_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_med_200_300->Scale(1/tt_dphi_med_200_300->Integral());
-	z_dphi_med_200_300->Draw("HIST");
-	
-	cz_med_dPhi->cd(3);
-	z_dphi_med_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 5 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_med_300->Scale(1/tt_dphi_med_300->Integral());
-	z_dphi_med_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	cz_med_dPhi->SaveAs(output_dir+sample+"_z_med_dPhi.png");
-
-	//cout<<__LINE__<<endl;
 
 //===============================
 //Draw Tight Plots
@@ -817,87 +595,9 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	//------------------
-	// Delta Phi TTBar
-	//------------------
-
-	TCanvas *ctt_tight_dPhi = new TCanvas("tt_tight_dPhi", "", 2000, 2000);
-	ctt_tight_dPhi->cd();
-
-	ctt_tight_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	ctt_tight_dPhi->cd(1);
-	tt_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
-	tt_dphi_tight_150_200->Draw("HIST");
-
-	ctt_tight_dPhi->cd(2);
-	tt_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
-	tt_dphi_tight_200_300->Draw("HIST");
-	
-	ctt_tight_dPhi->cd(3);
-	tt_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for t#bar{t} events with 2.5 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
-	tt_dphi_tight_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	ctt_tight_dPhi->SaveAs(output_dir+sample+"_tt_tight_dPhi.png");
-
-	//cout<<__LINE__<<endl;
-
-	//------------------
-	// Delta Phi Z
-	//------------------
-
-	TCanvas *cz_tight_dPhi = new TCanvas("z_tight_dPhi", "", 2000, 2000);
-	cz_tight_dPhi->cd();
-
-	cz_tight_dPhi->Divide(1,3);	
-
-	//cout<<__LINE__<<endl;
-
-	gPad->SetLogy(0);
-	gStyle->SetOptStat(kFALSE);
-
-	cz_tight_dPhi->cd(1);
-	z_dphi_tight_150_200->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #in [150,200)");
-	//tt_dphi_tight_150_200->Scale(1/tt_dphi_tight_150_200->Integral());
-	z_dphi_tight_150_200->Draw("HIST");
-
-	cz_tight_dPhi->cd(2);
-	z_dphi_tight_200_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #in [200,300)");
-	//tt_dphi_tight_200_300->Scale(1/tt_dphi_tight_200_300->Integral());
-	z_dphi_tight_200_300->Draw("HIST");
-	
-	cz_tight_dPhi->cd(3);
-	z_dphi_tight_300->SetTitle("#Delta#Phi(E^{miss}_{T}, dilepton) for Z events with 2.5 GeV Mass Window: E^{miss}_{T} #geq 300");
-	//tt_dphi_tight_300->Scale(1/tt_dphi_tight_300->Integral());
-	z_dphi_tight_300->Draw("HIST");
-
-	//cout<<__LINE__<<endl;
-
-	cz_tight_dPhi->SaveAs(output_dir+sample+"_z_tight_dPhi.png");
-
-	//cout<<__LINE__<<endl;
-
 //========================
 // Self Destruct!
 //========================
-cz_tight_dPhi->~TCanvas();
-cz_med_dPhi->~TCanvas();
-cz_loose_dPhi->~TCanvas();
-
-ctt_tight_dPhi->~TCanvas();
-ctt_med_dPhi->~TCanvas();
-ctt_loose_dPhi->~TCanvas();
-
 c1->~TCanvas();
 c2->~TCanvas();
 c3->~TCanvas();

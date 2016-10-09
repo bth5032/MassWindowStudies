@@ -875,14 +875,27 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   dilmass->SetDirectory(rootdir);
   dilmass->Sumw2();
 
-  TH1D *DeltaPhi_lep_met_150_200 = new TH1D(sampleName+"_DeltaPhi_lep_met_150_200", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #leq 200"+sampleName, 100,0,3.15);
-  DeltaPhi_lep_met_150_200->SetDirectory(rootdir);
-  DeltaPhi_lep_met_150_200->Sumw2();
+  TH1D *DeltaPhi_lep_met_0_50 = new TH1D(sampleName+"_DeltaPhi_lep_met_0_50", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [0,50)"+sampleName, 100,0,3.15);
+  DeltaPhi_lep_met_0_50->SetDirectory(rootdir);
+  DeltaPhi_lep_met_0_50->Sumw2();
 
-  TH1D *DeltaPhi_lep_met_200_300 = new TH1D(sampleName+"_DeltaPhi_lep_met_200_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [200,300)"+sampleName, 100,0,3.15);
-  DeltaPhi_lep_met_200_300->SetDirectory(rootdir);
-  DeltaPhi_lep_met_200_300->Sumw2();
-  
+  TH1D *DeltaPhi_lep_met_50_100 = new TH1D(sampleName+"_DeltaPhi_lep_met_50_100", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [50,100)"+sampleName, 100,0,3.15);
+  DeltaPhi_lep_met_50_100->SetDirectory(rootdir);
+  DeltaPhi_lep_met_50_100->Sumw2();
+
+  TH1D *DeltaPhi_lep_met_100_150 = new TH1D(sampleName+"_DeltaPhi_lep_met_100_150", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [100,150)"+sampleName, 100,0,3.15);
+  DeltaPhi_lep_met_100_150->SetDirectory(rootdir);
+  DeltaPhi_lep_met_100_150->Sumw2();
+
+
+  TH1D *DeltaPhi_lep_met_150_225 = new TH1D(sampleName+"_DeltaPhi_lep_met_150_225", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [150,225)"+sampleName, 100,0,3.15);
+  DeltaPhi_lep_met_150_225->SetDirectory(rootdir);
+  DeltaPhi_lep_met_150_225->Sumw2();
+
+  TH1D *DeltaPhi_lep_met_225_300 = new TH1D(sampleName+"_DeltaPhi_lep_met_225_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [225, 300)"+sampleName, 100,0,3.15);
+  DeltaPhi_lep_met_225_300->SetDirectory(rootdir);
+  DeltaPhi_lep_met_225_300->Sumw2();
+    
   TH1D *DeltaPhi_lep_met_300 = new TH1D(sampleName+"_DeltaPhi_lep_met_300", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #geq 300"+sampleName, 100,0,3.15);
   DeltaPhi_lep_met_300->SetDirectory(rootdir);
   DeltaPhi_lep_met_300->Sumw2();
@@ -1211,6 +1224,7 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       if (phys.met_T1CHS_miniAOD_CORE_pt() != 0) {
         t1met->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
         t1met_widebin->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+
         if (phys.met_T1CHS_miniAOD_CORE_pt() >= 150 && phys.met_T1CHS_miniAOD_CORE_pt() < 200 ){
           DeltaPhi_lep_met_150_200->Fill(dphi_lep_met, weight);
         }
@@ -1220,18 +1234,8 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
         else{
           DeltaPhi_lep_met_300->Fill(dphi_lep_met, weight);
         }
+
       }
-      if (phys.met_rawPt() != 0) rawmet->Fill(phys.met_rawPt(), weight);
-      if (phys.ht() != 0) {
-        ht->Fill(phys.ht(), weight);
-        ht_wide->Fill(phys.ht(), weight);
-      }
-      if (phys.gen_ht() != 0) gen_ht->Fill(phys.gen_ht(), weight);
-      if (bosonPt() != 0) vpt->Fill(bosonPt(), weight);
-      njets->Fill(phys.njets(), weight);
-      nbtags_m->Fill(phys.nBJetMedium(), weight);
-      nbtags_l->Fill(phys.nBJetLoose(), weight);
-      nbtags_t->Fill(phys.nBJetTight(), weight);
       nVert->Fill(phys.nVert(), weight);
       dilmass->Fill(phys.dilmass(), weight);
       //cout<<__LINE__<<endl;
@@ -1271,44 +1275,17 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   t1met_widebin->Write();
   //cout<<__LINE__<<endl;
-  rawmet->Write();
+  DeltaPhi_lep_met_0_50->Write();
   //cout<<__LINE__<<endl;
-  ht->Write();
+  DeltaPhi_lep_met_50_100->Write();
   //cout<<__LINE__<<endl;
-  ht_wide->Write();
+  DeltaPhi_lep_met_100_150->Write();
   //cout<<__LINE__<<endl;
-  gen_ht->Write();
+  DeltaPhi_lep_met_150_225->Write();
   //cout<<__LINE__<<endl;
-  vpt->Write();
-  //cout<<__LINE__<<endl;
-  njets->Write();
-  //cout<<__LINE__<<endl;
-  nbtags_m->Write();
-  //cout<<__LINE__<<endl;
-  nbtags_l->Write();
-  //cout<<__LINE__<<endl;
-  nbtags_t->Write();
-  //cout<<__LINE__<<endl;
-  nVert->Write();
-  //cout<<__LINE__<<endl;
-  DeltaPhi_lep_met_150_200->Write();
-  //cout<<__LINE__<<endl;
-  DeltaPhi_lep_met_200_300->Write();
+  DeltaPhi_lep_met_225_300->Write();
   //cout<<__LINE__<<endl;
   DeltaPhi_lep_met_300->Write();
-  //cout<<__LINE__<<endl;
-
-  if ( conf->get("data_type") == "gjets" && conf->get("data") == "true" ) //if photon data
-  {
-    nVert_HLT_Photon165_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon120_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon90_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon75_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon50_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon36_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon30_R9Id90_HE10_IsoM->Write();
-    nVert_HLT_Photon22_R9Id90_HE10_IsoM->Write();
-  }
   //cout<<__LINE__<<endl;
 
   //close output file

@@ -30,7 +30,7 @@ void runScanChain(ConfigParser* conf){
       ScanChain(getGJetsChain(conf->get("data_set")), "gjets", conf);  
     }
     if (conf->get("ttbar") == "true"){
-      ScanChain(getTTBarMC(conf->get("data_set")), conf->get("Name"), conf);   
+      ScanChain(getTTBarMC(conf->get("data_set")), "ttbar", conf);   
     }
   }
 }
