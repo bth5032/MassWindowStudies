@@ -1225,11 +1225,20 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
         t1met->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
         t1met_widebin->Fill(phys.met_T1CHS_miniAOD_CORE_pt(), weight);
 
-        if (phys.met_T1CHS_miniAOD_CORE_pt() >= 150 && phys.met_T1CHS_miniAOD_CORE_pt() < 200 ){
-          DeltaPhi_lep_met_150_200->Fill(dphi_lep_met, weight);
+        if (phys.met_T1CHS_miniAOD_CORE_pt() < 50){
+          DeltaPhi_lep_met_0_50->Fill(dphi_lep_met, weight);
+        }
+        else if (phys.met_T1CHS_miniAOD_CORE_pt() < 100 ){
+          DeltaPhi_lep_met_50_100->Fill(dphi_lep_met, weight);
+        }
+        else if (phys.met_T1CHS_miniAOD_CORE_pt() < 150){
+          DeltaPhi_lep_met_100_150->Fill(dphi_lep_met, weight);
+        }
+        else if (phys.met_T1CHS_miniAOD_CORE_pt() < 225){
+          DeltaPhi_lep_met_150_225->Fill(dphi_lep_met, weight);
         }
         else if (phys.met_T1CHS_miniAOD_CORE_pt() < 300){
-          DeltaPhi_lep_met_200_300->Fill(dphi_lep_met, weight);
+          DeltaPhi_lep_met_225_300->Fill(dphi_lep_met, weight);
         }
         else{
           DeltaPhi_lep_met_300->Fill(dphi_lep_met, weight);
