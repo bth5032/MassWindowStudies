@@ -69,9 +69,30 @@ void DPhiPlots(){
 	z_dphi_loose_300->SetLineColor(9);
 	z_dphi_loose_300->SetFillColor(9);
 
+	TH1D * z_met = (TH1D*) ((TH1D*) z_file->Get("zjets_type1MET_widebin"))->Clone("z_met");
+	TH1D * tt_met = (TH1D*) ((TH1D*) tt_file->Get("ttbar_type1MET_widebin"))->Clone("tt_met");
+
+	z_met->SetLineColor(kRed);
+	z_met>SetLineWidth(9);
+	tt_met->SetLineColor(kBlue);
+	tt_met->SetLineWidth(9);
 //===============================
 //Draw Plots
 //===============================
+	//------------------
+	// MET Distributions
+	//------------------
+
+	TCanvas * met = new TCanvas("canvas_met", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	z_met->Draw("HIST");
+	tt_met->Draw("HIST SAME");
+
+	met->SaveAs(output_dir+"met.png");
+
 	//------------------
 	// Delta Phi TTBar
 	//------------------
@@ -103,7 +124,7 @@ void DPhiPlots(){
 
 	//cout<<__LINE__<<endl;
 	ctt_lowMET->cd();
-	ctt_lowMET->SaveAs(output_dir+"_tt_lowMet_dPhi.png");
+	ctt_lowMET->SaveAs(output_dir+"tt_lowMet_dPhi.png");
 
 	TCanvas *ctt_HighMET = new TCanvas("tt_HighMET", "", 2000, 2000);
 	ctt_HighMET->cd();
@@ -132,7 +153,7 @@ void DPhiPlots(){
 
 	//cout<<__LINE__<<endl;
 
-	ctt_HighMET->SaveAs(output_dir+"_tt_HighMET_dPhi.png");
+	ctt_HighMET->SaveAs(output_dir+"tt_HighMET_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -167,7 +188,7 @@ void DPhiPlots(){
 
 	//cout<<__LINE__<<endl;
 	cz_lowMET->cd();
-	cz_lowMET->SaveAs(output_dir+"_z_lowMET_dPhi.png");
+	cz_lowMET->SaveAs(output_dir+"z_lowMET_dPhi.png");
 
 	TCanvas *cz_HighMET = new TCanvas("z_HighMET", "", 2000, 2000);
 	cz_HighMET->cd();
@@ -196,7 +217,7 @@ void DPhiPlots(){
 
 	//cout<<__LINE__<<endl;
 	cz_HighMET->cd();
-	cz_HighMET->SaveAs(output_dir+"_z_HighMET_dPhi.png");
+	cz_HighMET->SaveAs(output_dir+"z_HighMET_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
