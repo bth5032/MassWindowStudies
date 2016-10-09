@@ -31,10 +31,17 @@ void DPhiPlots(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	tt_dphi_loose_150_200->SetLineColor(46);
-	tt_dphi_loose_150_200->SetFillColor(46);
-	tt_dphi_loose_200_300->SetLineColor(8);
-	tt_dphi_loose_200_300->SetFillColor(8);
+	tt_dphi_loose_0_50->SetLineColor(46);
+	tt_dphi_loose_0_50->SetFillColor(46);
+	tt_dphi_loose_50_100->SetLineColor(8);
+	tt_dphi_loose_50_100->SetFillColor(8);
+	tt_dphi_loose_100_150->SetLineColor(9);
+	tt_dphi_loose_100_150->SetFillColor(9);
+
+	tt_dphi_loose_150_225->SetLineColor(46);
+	tt_dphi_loose_150_225->SetFillColor(46);
+	tt_dphi_loose_225_300->SetLineColor(8);
+	tt_dphi_loose_225_300->SetFillColor(8);
 	tt_dphi_loose_300->SetLineColor(9);
 	tt_dphi_loose_300->SetFillColor(9);
 
@@ -48,10 +55,17 @@ void DPhiPlots(TString sample){
 	TH1D * z_dphi_loose_225_300 = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_lep_met_225_300"))->Clone("z_dphi_loose_225_300");
 	TH1D * z_dphi_loose_300 = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_lep_met_300"))->Clone("z_dphi_loose_300");
 
-	z_dphi_loose_150_200->SetLineColor(46);
-	z_dphi_loose_150_200->SetFillColor(46);
-	z_dphi_loose_200_300->SetLineColor(8);
-	z_dphi_loose_200_300->SetFillColor(8);
+	z_dphi_loose_0_50->SetLineColor(46);
+	z_dphi_loose_0_50->SetFillColor(46);
+	z_dphi_loose_50_100->SetLineColor(8);
+	z_dphi_loose_50_100->SetFillColor(8);
+	z_dphi_loose_100_150->SetLineColor(9);
+	z_dphi_loose_100_150->SetFillColor(9);
+
+	z_dphi_loose_150_225->SetLineColor(46);
+	z_dphi_loose_150_225->SetFillColor(46);
+	z_dphi_loose_225_300->SetLineColor(8);
+	z_dphi_loose_225_300->SetFillColor(8);
 	z_dphi_loose_300->SetLineColor(9);
 	z_dphi_loose_300->SetFillColor(9);
 
