@@ -73,7 +73,7 @@ void DPhiPlots(){
 	TH1D * tt_met = (TH1D*) ((TH1D*) tt_file->Get("ttbar_type1MET_widebin"))->Clone("tt_met");
 
 	z_met->SetLineColor(kRed);
-	z_met>SetLineWidth(9);
+	z_met->SetLineWidth(9);
 	tt_met->SetLineColor(kBlue);
 	tt_met->SetLineWidth(9);
 //===============================
@@ -223,6 +223,7 @@ void DPhiPlots(){
 
 
 
+met->~TCanvas();
 cz_lowMET->~TCanvas();
 cz_HighMET->~TCanvas();
 ctt_lowMET->~TCanvas();
