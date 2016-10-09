@@ -3,7 +3,7 @@
 #include <iostream>
 #include <iomanip>    
 
-void DPhiPlots(TString sample){
+void DPhiPlots(){
 	TString dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/";
 	TString output_dir = "/home/users/bhashemi/public_html/DPhiStudies/";
 
@@ -103,7 +103,7 @@ void DPhiPlots(TString sample){
 
 	//cout<<__LINE__<<endl;
 	ctt_lowMET->cd();
-	ctt_lowMET->SaveAs(output_dir+sample+"_tt_lowMet_dPhi.png");
+	ctt_lowMET->SaveAs(output_dir+"_tt_lowMet_dPhi.png");
 
 	TCanvas *ctt_HighMET = new TCanvas("tt_HighMET", "", 2000, 2000);
 	ctt_HighMET->cd();
@@ -132,7 +132,7 @@ void DPhiPlots(TString sample){
 
 	//cout<<__LINE__<<endl;
 
-	ctt_HighMET->SaveAs(output_dir+sample+"_tt_HighMET_dPhi.png");
+	ctt_HighMET->SaveAs(output_dir+"_tt_HighMET_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
@@ -167,7 +167,7 @@ void DPhiPlots(TString sample){
 
 	//cout<<__LINE__<<endl;
 	cz_lowMET->cd();
-	cz_lowMET->SaveAs(output_dir+sample+"_z_lowMET_dPhi.png");
+	cz_lowMET->SaveAs(output_dir+"_z_lowMET_dPhi.png");
 
 	TCanvas *cz_HighMET = new TCanvas("z_HighMET", "", 2000, 2000);
 	cz_HighMET->cd();
@@ -196,7 +196,7 @@ void DPhiPlots(TString sample){
 
 	//cout<<__LINE__<<endl;
 	cz_HighMET->cd();
-	cz_HighMET->SaveAs(output_dir+sample+"_z_HighMET_dPhi.png");
+	cz_HighMET->SaveAs(output_dir+"_z_HighMET_dPhi.png");
 
 	//cout<<__LINE__<<endl;
 
