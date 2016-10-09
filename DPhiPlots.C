@@ -56,56 +56,6 @@ void DPhiPlots(TString sample){
 	z_dphi_loose_300->SetFillColor(9);
 
 //===============================
-//Add Overflow to MET Plots
-//===============================
-
-	double bc, of; //bin content and overflow
-
-	bc = z_met_loose->GetBinContent(z_met_loose->FindBin(450));
-	of = z_met_loose->GetBinContent(z_met_loose->FindBin(501));
-	z_met_loose->SetBinContent(z_met_loose->FindBin(450), bc+of);
-
-	bc = z_met_med->GetBinContent(z_met_med->FindBin(450));
-	of = z_met_med->GetBinContent(z_met_med->FindBin(501));
-	z_met_med->SetBinContent(z_met_med->FindBin(450), bc+of);
-
-	bc = z_met_tight->GetBinContent(z_met_tight->FindBin(450));
-	of = z_met_tight->GetBinContent(z_met_tight->FindBin(501));
-	z_met_tight->SetBinContent(z_met_tight->FindBin(450), bc+of);
-
-	bc = tt_met_loose->GetBinContent(tt_met_loose->FindBin(450));
-	of = tt_met_loose->GetBinContent(tt_met_loose->FindBin(501));
-	tt_met_loose->SetBinContent(tt_met_loose->FindBin(450), bc+of);
-
-	bc = tt_met_med->GetBinContent(tt_met_med->FindBin(450));
-	of = tt_met_med->GetBinContent(tt_met_med->FindBin(501));
-	tt_met_med->SetBinContent(tt_met_med->FindBin(450), bc+of);
-
-	bc = tt_met_tight->GetBinContent(tt_met_tight->FindBin(450));
-	of = tt_met_tight->GetBinContent(tt_met_tight->FindBin(501));
-	tt_met_tight->SetBinContent(tt_met_tight->FindBin(450), bc+of);
-
-
-	double integral, error;
-	
-	integral = tt_dilmass_tight->IntegralAndError(1,tt_dilmass_tight->GetNbinsX(), error);
-	cout<<"88.5-93.5 GeV: TTBar="<<integral<<"+/-"<<error;
-	integral = z_dilmass_tight->IntegralAndError(1,z_dilmass_tight->GetNbinsX(), error);
-	cout<<" Drell-Yan="<<integral<<"+/-"<<error<<endl;
-
-	integral = tt_dilmass_med->IntegralAndError(1,tt_dilmass_med->GetNbinsX(), error);
-	cout<<"86-96 GeV: TTBar="<<integral<<"+/-"<<error;
-	integral = z_dilmass_med->IntegralAndError(1,z_dilmass_med->GetNbinsX(), error);
-	cout<<" Drell-Yan="<<integral<<"+/-"<<error<<endl;
-	
-	integral = tt_dilmass_loose->IntegralAndError(1,tt_dilmass_loose->GetNbinsX(), error);
-	cout<<"81-101 GeV: TTBar="<<integral<<"+/-"<<error;
-	integral = z_dilmass_loose->IntegralAndError(1,z_dilmass_loose->GetNbinsX(), error);
-	cout<<" Drell-Yan="<<integral<<"+/-"<<error<<endl;
-	cout<<endl;
-
-
-//===============================
 //Draw Plots
 //===============================
 	//------------------
