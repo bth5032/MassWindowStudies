@@ -504,16 +504,19 @@ bool hasGoodBoson() {
 }
 
 double bosonPt(){
-  // Returns boson Pt, determines whether sample is gjets or zjets first.
+  // Returns boson Pt, determines whether sample is gjets, zjets, or ttbar first.
   if (g_sample_name == "zjets") {
     return phys.dilpt();
   }
-  else{
-    if (phys.evt_type() == 2 && phys.ngamma() > 0){
-      return phys.gamma_pt().at(0);
-    }
-    else
-      return 0;
+  else if (g_sample_name == "ttbar"){
+    return phys.dilpt();
+  }
+  else if (phys.evt_type() == 2 && phys.ngamma() > 0){
+    return phys.gamma_pt().at(0);
+  }
+  else
+  {
+    return 0;
   }
 }
 
