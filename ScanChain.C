@@ -1268,11 +1268,13 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
         else{
           DeltaPhi_lep_met_300->Fill(dphi_lep_met, weight);
         }
+      }
 
+      if (phys.met_T1CHS_miniAOD_CORE_pt() >= 50) {
         DeltaPhi_leading_lep_met->Fill(dphi_llep_met, weight);
         DeltaPhi_subleading_lep_met->Fill(dphi_slep_met, weight);
-
       }
+
       nVert->Fill(phys.nVert(), weight);
       dilmass->Fill(phys.dilmass(), weight);
 
