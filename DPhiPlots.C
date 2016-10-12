@@ -329,7 +329,7 @@ void DPhiPlots(TString files){
 
 	z_ht->SetLineColor(9);
 	z_ht->SetLineWidth(6);
-	z_t->SetTitle("Gen Level H_{T} Vs. Measured H_{T} for Z Events");
+	z_ht->SetTitle("Gen Level H_{T} Vs. Measured H_{T} for Z Events");
 	z_ht->SetAxisRange(0,1000);
 	z_ht->Draw("HIST");
 
