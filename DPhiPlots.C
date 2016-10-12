@@ -282,9 +282,10 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_z_lepmet->cd(1);
+	z_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z Events");
 	z_leading_lepmet->Draw("HIST");
-
 	c_z_lepmet->cd(2);
+	z_subleading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z Events");
 	z_subleading_lepmet->Draw("HIST");
 
 
@@ -299,9 +300,11 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_tt_lepmet->cd(1);
+	tt_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for T#bar{T} Events");
 	tt_leading_lepmet->Draw("HIST");
 
 	c_tt_lepmet->cd(2);
+	tt_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for T#bar{T} Events");
 	tt_subleading_lepmet->Draw("HIST");
 
 
