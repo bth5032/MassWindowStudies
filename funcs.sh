@@ -8,6 +8,10 @@ function makePlots {
 	root -l -b -q "DrawPlots.C(\"$1\")"
 }
 
+function DPhiPlots {
+	root -l -b -q "DPhiPlots.C(\"$1\")"	
+}
+
 function makeHistos {	
 	mkdirs $2
 	root -l -b -q "doAll.C+(\"$1\", \"$2\")"

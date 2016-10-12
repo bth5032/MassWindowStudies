@@ -3,19 +3,30 @@
 #include <iostream>
 #include <iomanip>    
 
-void DPhiPlots(){
-	//TString dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/noJetMET/";
-	//TString output_dir = "/home/users/bhashemi/public_html/DPhiStudies/noJetMET/";
+void DPhiPlots(TString files){
 
-	//TString dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/";
-	//TString output_dir = "/home/users/bhashemi/public_html/DPhiStudies/";
+	TString dir_loc, output_dir;
+	if (files == "nojm")
+	{
+		dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/noJetMET/";
+		output_dir = "/home/users/bhashemi/public_html/DPhiStudies/noJetMET/";
+	}
+	else if (files == "nojmv2"){
+		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/noJetMET/";
+		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/noJetMET/";
 
-	TString dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/noJetMET/";
-	TString output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/noJetMET/";
+	}
+	else if (files == "v2"){
+		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/";
+		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/";
+	}
+	else{
+		dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/";
+		output_dir = "/home/users/bhashemi/public_html/DPhiStudies/";
+	}
 
-	//TString dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/";
-	//TString output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/";
-
+	cout<<"Reading From "<<dir_loc<<endl;
+	
 //=================
 // Define Files
 //=================
