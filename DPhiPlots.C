@@ -311,6 +311,45 @@ void DPhiPlots(TString files){
 	c_tt_lepmet->cd();
 	c_tt_lepmet->SaveAs(output_dir+"tt_lepmet.png");
 
+//==============
+// HT Check
+//==============
+
+	TCanvas *c_Ht_check = new TCanvas("c_Ht_check", "", 2000, 2000);
+
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_genht = (TH1D*) ((TH1D*) z_file->Get("zjets_gen_ht"))->Clone("z_genht");
+	TH1D * z_ht = (TH1D*) ((TH1D*) z_file->Get("zjets_ht"))->Clone("z_ht");
+
+	//cout<<__LINE__<<endl;
+
+	z_genht->SetLineColor(46);
+	z_genht->SetLineWidth(6);
+	z_genht->SetTitle("Gen Level H_{T} Vs. Measured H_{T} for Z Events");
+	z_genht->Draw("HIST");
+
+	z_ht->SetLineColor(9);
+	z_ht->SetLineWidth(6);
+	z_ht->Draw("HIST SAME");
+
+	TLegend *l_ht;
+	l_ht = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_ht->SetLineColor(kWhite);  
+	l_ht->SetShadowColor(kWhite);
+	l_ht->SetFillColor(kWhite);
+	l_ht->AddEntry(z_genht, "Gen Level H_{T}", "f");
+	l_ht->AddEntry(z_ht, "Measured H_{T}", "f");
+	  
+	l_ht->Draw("same");
+
+
+	c_Ht_check->cd();
+	c_Ht_check->SaveAs(output_dir+"Ht_check.png");
+
 
 met->~TCanvas();
 cz_lowMET->~TCanvas();

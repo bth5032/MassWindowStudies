@@ -903,11 +903,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_lep_met_300->SetDirectory(rootdir);
   DeltaPhi_lep_met_300->Sumw2();
 
-  TH1D *DeltaPhi_leading_lep_met = new TH1D(sampleName+"_DeltaPhi_leading_lep_met", "#Delta#Phi(E^{miss}_T, leading lepton)"+sampleName, 100,0,3.15);
+  TH1D *DeltaPhi_leading_lep_met = new TH1D(sampleName+"_DeltaPhi_leading_lep_met", "#Delta#Phi(E^{miss}_{T}, leading lepton)"+sampleName, 100,0,3.15);
   DeltaPhi_leading_lep_met->SetDirectory(rootdir);
   DeltaPhi_leading_lep_met->Sumw2();
 
-  TH1D *DeltaPhi_subleading_lep_met = new TH1D(sampleName+"_DeltaPhi_subleading_lep_met", "#Delta#Phi(E^{miss}_T, subleading lepton)"+sampleName, 100,0,3.15);
+  TH1D *DeltaPhi_subleading_lep_met = new TH1D(sampleName+"_DeltaPhi_subleading_lep_met", "#Delta#Phi(E^{miss}_{T}, subleading lepton)"+sampleName, 100,0,3.15);
   DeltaPhi_subleading_lep_met->SetDirectory(rootdir);
   DeltaPhi_subleading_lep_met->Sumw2();
 
