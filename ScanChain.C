@@ -1300,6 +1300,10 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   numMETFilters->Write();
   //cout<<__LINE__<<endl;
+  ht->Write();
+  //cout<<__LINE__<<endl;
+  gen_ht->Write();
+  //cout<<__LINE__<<endl;
   t1met->Write();
   //cout<<__LINE__<<endl;
   t1met_widebin->Write();
