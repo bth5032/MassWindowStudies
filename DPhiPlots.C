@@ -6,17 +6,17 @@
 void DPhiPlots(TString files){
 
 	TString dir_loc, output_dir;
-	if (files == "nojm")
+	if (files.Contains("nojm") && ! files.Contains("v2"))
 	{
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/noJetMET/";
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudies/noJetMET/";
 	}
-	else if (files == "nojmv2"){
+	else if (files.Contains("nojm") && files.Contains("v2")){
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/noJetMET/";
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/noJetMET/";
 
 	}
-	else if (files == "v2"){
+	else if (files.Contains("v2")){
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/";
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/";
 	}
@@ -282,10 +282,10 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_z_lepmet->cd(1);
-	z_leading_lepmet->Draw();
+	z_leading_lepmet->Draw("HIST");
 
 	c_z_lepmet->cd(2);
-	z_subleading_lepmet->Draw();
+	z_subleading_lepmet->Draw("HIST");
 
 
 	c_z_lepmet->cd();
