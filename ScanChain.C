@@ -1267,6 +1267,9 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       }
       nVert->Fill(phys.nVert(), weight);
       dilmass->Fill(phys.dilmass(), weight);
+
+      ht->Fill(phys.ht(), weight);
+      gen_ht->Fill(phys.gen_ht(), weight);
       //cout<<__LINE__<<endl;
 
       //cout<<__LINE__<<endl;
