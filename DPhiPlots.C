@@ -321,7 +321,7 @@ void DPhiPlots(TString files){
 	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	TH1D * z_genht = (TH1D*) ((TH1D*) z_file->Get("zjets_gen_ht"))->Clone("z_genht");
+	TH1D * z_genht = (TH1D*) ((TH1D*) z_file->Get("zjets_genht"))->Clone("z_genht");
 	TH1D * z_ht = (TH1D*) ((TH1D*) z_file->Get("zjets_ht"))->Clone("z_ht");
 
 	//cout<<__LINE__<<endl;
