@@ -85,6 +85,23 @@ void DPhiPlots(){
 	z_met->SetLineWidth(6);
 	tt_met->SetLineColor(kBlue);
 	tt_met->SetLineWidth(6);
+
+	//Lepton/MET plots
+
+	TH1D * tt_leading_lepmet = (TH1D*) ((TH1D*) tt_file->Get("ttbar_DeltaPhi_leading_lep_met"))->Clone("tt_leading_lepmet");
+	TH1D * tt_subleading_lepmet = (TH1D*) ((TH1D*) tt_file->Get("ttbar_DeltaPhi_subleading_lep_met"))->Clone("tt_subleading_lepmet");
+	TH1D * z_leading_lepmet = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_leading_lep_met"))->Clone("z_leading_lepmet");
+	TH1D * z_subleading_lepmet = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_subleading_lep_met"))->Clone("z_subleading_lepmet");
+
+	tt_leading_lepmet->SetLineColor(46);
+	tt_leading_lepmet->SetFillColor(46);
+	tt_subleading_lepmet->SetLineColor(9);
+	tt_subleading_lepmet->SetFillColor(9);
+
+	z_leading_lepmet->SetLineColor(46);
+	z_leading_lepmet->SetFillColor(46);
+	z_subleading_lepmet->SetLineColor(9);
+	z_subleading_lepmet->SetFillColor(9);
 //===============================
 //Draw Plots
 //===============================
@@ -242,12 +259,53 @@ void DPhiPlots(){
 	//cout<<__LINE__<<endl;
 
 
+	//------------------
+	// DPhi Lep/MET
+	//------------------
+
+	TCanvas *c_z_lepmet = new TCanvas("c_z_lepmet", "", 2000, 2000);
+	c_z_lepmet->Divide(1,2);
+
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	c_z_lepmet->cd(1);
+	z_leading_lepmet->Draw();
+
+	c_z_lepmet->cd(2);
+	z_subleading_lepmet->Draw();
+
+
+	c_z_lepmet->cd();
+	c_z_lepmet->SaveAs(output_dir+"z_lepmet.png");
+
+	TCanvas *c_tt_lepmet = new TCanvas("c_tt_lepmet", "", 2000, 2000);
+	c_tt_lepmet->Divide(1,2);
+
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	c_tt_lepmet->cd(1);
+	tt_leading_lepmet->Draw();
+
+	c_tt_lepmet->cd(2);
+	tt_subleading_lepmet->Draw();
+
+
+	c_tt_lepmet->cd();
+	c_tt_lepmet->SaveAs(output_dir+"tt_lepmet.png");
+
 
 met->~TCanvas();
 cz_lowMET->~TCanvas();
 cz_HighMET->~TCanvas();
 ctt_lowMET->~TCanvas();
 ctt_HighMET->~TCanvas();
+
+c_tt_lepmet->~TCanvas();
+c_z_lepmet->~TCanvas();
 
 
 }
