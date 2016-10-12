@@ -299,10 +299,10 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_tt_lepmet->cd(1);
-	tt_leading_lepmet->Draw();
+	tt_leading_lepmet->Draw("HIST");
 
 	c_tt_lepmet->cd(2);
-	tt_subleading_lepmet->Draw();
+	tt_subleading_lepmet->Draw("HIST");
 
 
 	c_tt_lepmet->cd();
