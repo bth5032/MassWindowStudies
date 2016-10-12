@@ -312,11 +312,10 @@ void DPhiPlots(TString files){
 	c_tt_lepmet->SaveAs(output_dir+"tt_lepmet.png");
 
 //==============
-// HT Check
+// HT Checking
 //==============
 
 	TCanvas *c_Ht_check = new TCanvas("c_Ht_check", "", 2000, 2000);
-
 
 	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
@@ -348,9 +347,40 @@ void DPhiPlots(TString files){
 	  
 	l_ht->Draw("same");
 
+	//Delta HT
 
 	c_Ht_check->cd();
 	c_Ht_check->SaveAs(output_dir+"Ht_check.png");
+
+	TCanvas *c_Dht = new TCanvas("c_Dht", "", 2000, 2000);
+
+	c_Dht->Divide(1,2);
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_dht_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_lowphi"))->Clone("z_dht_lowphi");
+	TH1D * z_dht_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_highphi"))->Clone("z_dht_highphi");
+
+	//cout<<__LINE__<<endl;
+
+	c_Dht->cd(1);
+	z_dht_lowphi->SetLineColor(9);
+	z_dht_lowphi->SetFillColor(9);
+	z_dht_lowphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
+	z_dht_lowphi->SetAxisRange(-300,300);
+	z_dht_lowphi->Draw("HIST");
+
+	c_Dht->cd(2);
+	z_dht_highphi->SetLineColor(46);
+	z_dht_highphi->SetFillColor(46);
+	z_dht_highphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
+	z_dht_highphi->SetAxisRange(-300,300);
+	z_dht_highphi->Draw("HIST");
+
+
+	c_Dht->cd();
+	c_Dht->SaveAs(output_dir+"Z_Dht.png");
+
 
 
 met->~TCanvas();
@@ -362,6 +392,8 @@ ctt_HighMET->~TCanvas();
 c_tt_lepmet->~TCanvas();
 c_z_lepmet->~TCanvas();
 
+c_Ht_check->~TCanvas();
+c_Dht->~TCanvas();
 
 }
 

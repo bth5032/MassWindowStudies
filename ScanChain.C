@@ -911,6 +911,14 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_subleading_lep_met->SetDirectory(rootdir);
   DeltaPhi_subleading_lep_met->Sumw2();
 
+  TH1D *Dht_lowphi = new TH1D(sampleName+"_Dht_lowphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 2000,-1000,1000);
+  Dht_lowphi->SetDirectory(rootdir);
+  Dht_lowphi->Sumw2();
+
+  TH1D *Dht_highphi = new TH1D(sampleName+"_Dht_highphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 2000,-1000,1000);
+  Dht_highphi->SetDirectory(rootdir);
+  Dht_highphi->Sumw2();
+
   //MET Histos
   TH1D *t1met = new TH1D(sampleName+"_type1MET", "Type 1 MET for "+sampleName, 6000,0,6000);
   t1met->SetDirectory(rootdir);
@@ -1270,6 +1278,13 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
 
       ht->Fill(phys.ht(), weight);
       gen_ht->Fill(phys.gen_ht(), weight);
+
+      if (dphi_lep_met <= 1){
+        Dht_lowphi->Fill(phys.gen_ht() - phys.ht());
+      }
+      else if (dphi_lep_met >= 2){
+        Dht_highphi->Fill(phys.gen_ht() - phys.ht());
+      }
       //cout<<__LINE__<<endl;
 
       //cout<<__LINE__<<endl;
@@ -1310,6 +1325,10 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   t1met->Write();
   //cout<<__LINE__<<endl;
   t1met_widebin->Write();
+  //cout<<__LINE__<<endl;
+  Dht_lowphi->Write();
+  //cout<<__LINE__<<endl;
+  Dht_highphi->Write();
   //cout<<__LINE__<<endl;
   DeltaPhi_lep_met_0_50->Write();
   //cout<<__LINE__<<endl;
