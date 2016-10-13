@@ -367,12 +367,16 @@ void DPhiPlots(TString files){
 	z_dht_lowphi->SetLineColor(9);
 	z_dht_lowphi->SetFillColor(9);
 	z_dht_lowphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
+	z_dht_lowphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
+	z_dht_lowphi->SetYTitle("Events / 1 GeV");
 	z_dht_lowphi->SetAxisRange(-300,300);
 	z_dht_lowphi->Draw("HIST");
 
 	c_Dht->cd(2);
 	z_dht_highphi->SetLineColor(46);
 	z_dht_highphi->SetFillColor(46);
+	z_dht_highphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
+	z_dht_highphi->SetYTitle("Events / 1 GeV");
 	z_dht_highphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
 	z_dht_highphi->SetAxisRange(-300,300);
 	z_dht_highphi->Draw("HIST");
