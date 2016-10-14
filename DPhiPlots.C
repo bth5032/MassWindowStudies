@@ -329,12 +329,14 @@ void DPhiPlots(TString files){
 
 	c_z_lepmet_ee->cd(1);
 	z_leading_lepmet_ee->SetLineColor(9);
-	z_leading_lepmet_ee->SetLineWidth(6);
+	z_leading_lepmet_ee->SetFillColor(9);
+	//z_leading_lepmet_ee->SetLineWidth(6);
 	z_leading_lepmet_ee->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow e #bar{e} Events");
 	z_leading_lepmet_ee->Draw("HIST");
 	c_z_lepmet_ee->cd(2);
 	z_subleading_lepmet_ee->SetLineColor(46);
-	z_subleading_lepmet_ee->SetLineWidth(6);
+	z_subleading_lepmet_ee->SetFillColor(46);
+	//z_subleading_lepmet_ee->SetLineWidth(6);
 	z_subleading_lepmet_ee->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow e #bar{e} Events");
 	z_subleading_lepmet_ee->Draw("HIST");
 
@@ -489,7 +491,7 @@ void DPhiPlots(TString files){
 	l_nvert->SetShadowColor(kWhite);
 	l_nvert->SetFillColor(kWhite);
 	l_nvert->AddEntry(z_nvert_highphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #geq 2", "f");
-	l_nvert->AddEntry(z_nvert_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 2", "f");
+	l_nvert->AddEntry(z_nvert_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 1", "f");
 	  
 	l_nvert->Draw("same");
 
@@ -535,7 +537,7 @@ void DPhiPlots(TString files){
 	l_njets->SetShadowColor(kWhite);
 	l_njets->SetFillColor(kWhite);
 	l_njets->AddEntry(z_njets_highphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #geq 2", "f");
-	l_njets->AddEntry(z_njets_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 2", "f");
+	l_njets->AddEntry(z_njets_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 1", "f");
 	  
 	l_njets->Draw("same");
 
