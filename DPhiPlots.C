@@ -428,19 +428,19 @@ void DPhiPlots(TString files){
 
 	z_dht_lowphi->SetLineColor(9);
 	z_dht_lowphi->SetLineWidth(6);
-	z_dht_lowphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
-	z_dht_lowphi->SetXTitle("#frac{Gen Level H_{T} - Measured H_{T}}{Gen Level H_{T}}");
-	z_dht_lowphi->SetYTitle("Events / 1 GeV");
+	z_dht_lowphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_dht_lowphi->SetXTitle("Percent Gen H_{T} - Reco H_{T} Difference");
+	z_dht_lowphi->SetYTitle("Events");
 	z_dht_lowphi->SetAxisRange(-1,1);
 	z_dht_lowphi->Draw("HIST");
 
 	z_dht_highphi->SetLineColor(46);
 	z_dht_highphi->SetLineWidth(6);
-	z_dht_highphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
-	z_dht_highphi->SetYTitle("Events / 1 GeV");
-	z_dht_highphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
+	z_dht_highphi->SetXTitle("Percent Gen H_{T} - Reco H_{T} Difference");
+	z_dht_highphi->SetYTitle("Events");
+	z_dht_highphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
 	z_dht_highphi->SetAxisRange(-1,1);
-	z_dht_highphi->Draw("HIST");
+	z_dht_highphi->Draw("HIST SAME");
 
 	TLegend *l_Dht;
 	l_Dht = new TLegend(0.73, 0.73, 0.88, 0.88);
@@ -448,8 +448,8 @@ void DPhiPlots(TString files){
 	l_Dht->SetLineColor(kWhite);  
 	l_Dht->SetShadowColor(kWhite);
 	l_Dht->SetFillColor(kWhite);
-	l_Dht->AddEntry(z_genht, "Gen Level H_{T}", "f");
-	l_Dht->AddEntry(z_ht, "Measured H_{T}", "f");
+	l_Dht->AddEntry(z_dht_lowphi, "", "f");
+	l_Dht->AddEntry(z_dht_highphi, "Measured H_{T}", "f");
 	  
 	l_Dht->Draw("same");
 
