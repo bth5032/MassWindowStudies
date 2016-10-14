@@ -356,10 +356,14 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_z_lepmet_mm->cd(1);
+	z_leading_lepmet_mm->SetLineColor(9);
+	z_leading_lepmet_mm->SetLineWidth(6);
 	z_leading_lepmet_mm->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow #mu #bar{#mu} Events");
 	z_leading_lepmet_mm->Draw("HIST");
 
 	c_z_lepmet_mm->cd(2);
+	z_subleading_lepmet_mm->SetLineColor(46);
+	z_subleading_lepmet_mm->SetLineWidth(6);
 	z_subleading_lepmet_mm->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow #mu #bar{#mu} Events");
 	z_subleading_lepmet_mm->Draw("HIST");
 
