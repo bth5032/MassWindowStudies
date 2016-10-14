@@ -319,6 +319,7 @@ void DPhiPlots(TString files){
 	TH1D * z_leading_lepmet_ee = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_leading_lep_met_ee"))->Clone("z_leading_lepmet_ee");
 	TH1D * z_subleading_lepmet_ee = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_subleading_lep_met_ee"))->Clone("z_subleading_lepmet_ee");
 
+
 	TCanvas *c_z_lepmet_ee = new TCanvas("c_z_lepmet_ee", "", 2000, 2000);
 	c_z_lepmet_ee->Divide(1,2);
 
@@ -327,11 +328,15 @@ void DPhiPlots(TString files){
 	gStyle->SetOptStat(kFALSE);
 
 	c_z_lepmet_ee->cd(1);
-	z_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow e #bar{e} Events");
-	z_leading_lepmet->Draw("HIST");
+	z_leading_lepmet_ee->SetLineColor(9);
+	z_leading_lepmet_ee->SetLineWidth(6);
+	z_leading_lepmet_ee->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow e #bar{e} Events");
+	z_leading_lepmet_ee->Draw("HIST");
 	c_z_lepmet_ee->cd(2);
-	z_subleading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow e #bar{e} Events");
-	z_subleading_lepmet->Draw("HIST");
+	z_subleading_lepmet_ee->SetLineColor(46);
+	z_subleading_lepmet_ee->SetLineWidth(6);
+	z_subleading_lepmet_ee->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow e #bar{e} Events");
+	z_subleading_lepmet_ee->Draw("HIST");
 
 	c_z_lepmet_ee->cd();
 	c_z_lepmet_ee->SaveAs(output_dir+"z_lepmet_met50_ee.png");
@@ -405,7 +410,6 @@ void DPhiPlots(TString files){
 
 	TCanvas *c_Dht = new TCanvas("c_Dht", "", 2000, 2000);
 
-	c_Dht->Divide(1,2);
 	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
@@ -414,24 +418,32 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
-	c_Dht->cd(1);
 	z_dht_lowphi->SetLineColor(9);
-	z_dht_lowphi->SetFillColor(9);
+	z_dht_lowphi->SetLineWidth(6);
 	z_dht_lowphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
 	z_dht_lowphi->SetXTitle("#frac{Gen Level H_{T} - Measured H_{T}}{Gen Level H_{T}}");
 	z_dht_lowphi->SetYTitle("Events / 1 GeV");
 	z_dht_lowphi->SetAxisRange(-1,1);
 	z_dht_lowphi->Draw("HIST");
 
-	c_Dht->cd(2);
 	z_dht_highphi->SetLineColor(46);
-	z_dht_highphi->SetFillColor(46);
+	z_dht_highphi->SetLineWidth(6);
 	z_dht_highphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
 	z_dht_highphi->SetYTitle("Events / 1 GeV");
 	z_dht_highphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
 	z_dht_highphi->SetAxisRange(-1,1);
 	z_dht_highphi->Draw("HIST");
 
+	TLegend *l_Dht;
+	l_Dht = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_Dht->SetLineColor(kWhite);  
+	l_Dht->SetShadowColor(kWhite);
+	l_Dht->SetFillColor(kWhite);
+	l_Dht->AddEntry(z_genht, "Gen Level H_{T}", "f");
+	l_Dht->AddEntry(z_ht, "Measured H_{T}", "f");
+	  
+	l_Dht->Draw("same");
 
 	c_Dht->cd();
 	c_Dht->SaveAs(output_dir+"Z_Dht_met50.png");
@@ -451,17 +463,17 @@ void DPhiPlots(TString files){
 	//cout<<__LINE__<<endl;
 
 
-	z_nvert_highphi->SetLineColor(9);
-	z_nvert_highphi->SetLineWidth(6);
-	z_nvert_highphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
-	z_nvert_highphi->SetXTitle("Number of Vertcies");
-	z_nvert_highphi->SetYTitle("Count");
-	z_nvert_highphi->SetAxisRange(0,50);
-	z_nvert_highphi->Draw("HIST");
-
-	z_nvert_lowphi->SetLineColor(46);
+	z_nvert_lowphi->SetLineColor(9);
 	z_nvert_lowphi->SetLineWidth(6);
-	z_nvert_lowphi->Draw("HIST SAME");
+	z_nvert_lowphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_nvert_lowphi->SetXTitle("Number of Vertcies");
+	z_nvert_lowphi->SetYTitle("Count");
+	z_nvert_lowphi->SetAxisRange(0,50);
+	z_nvert_lowphi->Draw("HIST");
+
+	z_nvert_highphi->SetLineColor(46);
+	z_nvert_highphi->SetLineWidth(6);
+	z_nvert_highphi->Draw("HIST SAME");
 	
 	TLegend *l_nvert;
 	l_nvert = new TLegend(0.73, 0.73, 0.88, 0.88);
@@ -494,17 +506,17 @@ void DPhiPlots(TString files){
 	//cout<<__LINE__<<endl;
 
 
-	z_njets_highphi->SetLineColor(9);
-	z_njets_highphi->SetLineWidth(6);
-	z_njets_highphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
-	z_njets_highphi->SetXTitle("Number of Jets");
-	z_njets_highphi->SetYTitle("Count");
-	z_njets_highphi->SetAxisRange(0,7);
-	z_njets_highphi->Draw("HIST");
-
-	z_njets_lowphi->SetLineColor(46);
+	z_njets_lowphi->SetLineColor(9);
 	z_njets_lowphi->SetLineWidth(6);
-	z_njets_lowphi->Draw("HIST SAME");
+	z_njets_lowphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_njets_lowphi->SetXTitle("Number of Jets");
+	z_njets_lowphi->SetYTitle("Count");
+	z_njets_lowphi->SetAxisRange(0,7);
+	z_njets_lowphi->Draw("HIST");
+
+	z_njets_highphi->SetLineColor(46);
+	z_njets_highphi->SetLineWidth(6);
+	z_njets_highphi->Draw("HIST SAME");
 	
 	TLegend *l_njets;
 	l_njets = new TLegend(0.73, 0.73, 0.88, 0.88);
