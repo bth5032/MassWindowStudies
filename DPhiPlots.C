@@ -488,8 +488,8 @@ void DPhiPlots(TString files){
 	gPad->SetLogy(0);
 	gStyle->SetOptStat(kFALSE);
 
-	TH1D * z_njets_highphi = (TH1D*) ((TH1D*) z_file->Get("z_njets_highphi"))->Clone("z_njets_highphi");
-	TH1D * z_njets_lowphi = (TH1D*) ((TH1D*) z_file->Get("z_njets_lowphi"))->Clone("z_njets_lowphi");
+	TH1D * z_njets_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_njets_highphi"))->Clone("z_njets_highphi");
+	TH1D * z_njets_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_njets_lowphi"))->Clone("z_njets_lowphi");
 
 	//cout<<__LINE__<<endl;
 
