@@ -595,6 +595,62 @@ void processSample(TString sample){
 
 	//cout<<__LINE__<<endl;
 
+//====================
+// Efficiency Table
+//====================	
+
+	double tt_count, tt_err, z_count, z_err, tt_loose, z_loose;
+	//Draw Table----------------------------------------------------------------------------
+	cout<<"EFF: Mass Window [GeV] \t TTbar \t TTBar Relative Efficiency \t Drell-Yan \t Drell-Yan Relative Efficiency"<<endl;
+	//loose
+	tt_count = tt_dilmass_loose->IntegralAndError(-1,41, tt_err);
+	tt_loose=tt_count;
+	z_count = z_dilmass_loose->IntegralAndError(-1,41, z_err);
+	z_loose=z_count;
+
+	cout<<"EFF: 81-101 \t "<< tt_count<<"+/-"<<tt_err<<" \t "<< tt_count/tt_loose <<" \t "<<z_count<<"+/-"<<z_err<<" \t "<<z_count/z_loose<<endl;
+
+	//med
+	tt_count = tt_dilmass_med->IntegralAndError(-1,41, tt_err);
+	z_count = z_dilmass_med->IntegralAndError(-1,41, z_err);
+
+	cout<<"EFF: 86-96 \t "<< tt_count<<"+/-"<<tt_err<<" \t "<< tt_count/tt_loose <<" \t "<<z_count<<"+/-"<<z_err<<" \t "<<z_count/z_loose<<endl;
+
+	//tight
+	tt_count = tt_dilmass_tight->IntegralAndError(-1,41, tt_err);
+	z_count = z_dilmass_tight->IntegralAndError(-1,41, z_err);
+
+	cout<<"EFF: 88.5-93.5 \t "<< tt_count<<"+/-"<<tt_err<<" \t "<< tt_count/tt_loose <<" \t "<<z_count<<"+/-"<<z_err<<" \t "<<z_count/z_loose<<endl;
+
+
+	//Draw Table----------------------------------------------------------------------------
+
+	//Write Latex Table----------------------------------------------------------------------------
+	cout<<"LATEX Tight Window:"<<endl;
+	cout<<"LATEX \\begin{tabular}{ l | l | l | l | l | l | l } \\hline Sample &";
+
+	cout<<"EFF: Mass Window [GeV] & TTbar & TTBar Relative Efficiency & Drell-Yan & Drell-Yan Relative Efficiency \\\\ \\hline"<<endl;
+	//loose
+	tt_count = tt_dilmass_loose->IntegralAndError(-1,41, tt_err);
+	tt_loose=tt_count;
+	z_count = z_dilmass_loose->IntegralAndError(-1,41, z_err);
+	z_loose=z_count;
+
+	cout<<"EFF: 81-101 & "<< tt_count<<"$\\pm$"<<tt_err<<" & "<< tt_count/tt_loose <<" & "<<z_count<<"$\\pm$"<<z_err<<" & "<<z_count/z_loose<<endl;
+
+	//med
+	tt_count = tt_dilmass_med->IntegralAndError(-1,41, tt_err);
+	z_count = z_dilmass_med->IntegralAndError(-1,41, z_err);
+
+	cout<<"EFF: 81-101 & "<< tt_count<<"$\\pm$"<<tt_err<<" & "<< tt_count/tt_loose <<" & "<<z_count<<"$\\pm$"<<z_err<<" & "<<z_count/z_loose<<endl;
+
+	//tight
+	tt_count = tt_dilmass_tight->IntegralAndError(-1,41, tt_err);
+	z_count = z_dilmass_tight->IntegralAndError(-1,41, z_err);
+
+	cout<<"EFF: 81-101 & "<< tt_count<<"$\\pm$"<<tt_err<<" & "<< tt_count/tt_loose <<" & "<<z_count<<"$\\pm$"<<z_err<<" & "<<z_count/z_loose<<endl;
+	cout<<" \\\\ \\hline \\end{tabular}"<<endl;
+	//Write Latex Table----------------------------------------------------------------------------
 //========================
 // Self Destruct!
 //========================
