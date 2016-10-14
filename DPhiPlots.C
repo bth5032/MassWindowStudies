@@ -520,7 +520,7 @@ void DPhiPlots(TString files){
 	//Delta HT
 
 	c_njets_check->cd();
-	c_njets_check->SaveAs(output_dir+"nvert.png");
+	c_njets_check->SaveAs(output_dir+"njets.png");
 
 
 	met->~TCanvas();
