@@ -648,7 +648,7 @@ void processSample(TString sample){
 	tt_count = tt_dilmass_tight->IntegralAndError(-1,41, tt_err);
 	z_count = z_dilmass_tight->IntegralAndError(-1,41, z_err);
 
-	cout<<"EFF: 81-101 & "<< tt_count<<"$\\pm$"<<tt_err<<" & "<< tt_count/tt_loose <<" & "<<z_count<<"$\\pm$"<<z_err<<" & "<<z_count/z_loose<<" \\\\ \\hline"endl;
+	cout<<"EFF: 81-101 & "<< tt_count<<"$\\pm$"<<tt_err<<" & "<< tt_count/tt_loose <<" & "<<z_count<<"$\\pm$"<<z_err<<" & "<<z_count/z_loose<<" \\\\ \\hline"<<endl;
 	cout<<"EFF: \\end{tabular}"<<endl;
 	//Write Latex Table----------------------------------------------------------------------------
 //========================
