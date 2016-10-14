@@ -1307,7 +1307,7 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
           DeltaPhi_leading_lep_met_ee->Fill(dphi_llep_met, weight);
           DeltaPhi_subleading_lep_met_ee->Fill(dphi_slep_met, weight);
         }
-        else if {
+        else if (phys.hyp_type() == 1) {
           DeltaPhi_leading_lep_met_mm->Fill(dphi_llep_met, weight);
           DeltaPhi_subleading_lep_met_mm->Fill(dphi_slep_met, weight);  
         }
