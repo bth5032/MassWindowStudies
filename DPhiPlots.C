@@ -464,8 +464,8 @@ void DPhiPlots(TString files){
 	TH1D * z_nvert_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_nVert_highphi"))->Clone("zjets_nVert_highphi");
 	TH1D * z_nvert_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_nVert_lowphi"))->Clone("zjets_nVert_lowphi");
 
-	z_nvert_highphi->Scale(z_nvert_highphi->Integral());
-	z_nvert_lowphi->Scale(z_nvert_lowphi->Integral());
+	z_nvert_highphi->Scale(1/z_nvert_highphi->Integral());
+	z_nvert_lowphi->Scale(1/z_nvert_lowphi->Integral());
 
 	//cout<<__LINE__<<endl;
 
@@ -510,8 +510,8 @@ void DPhiPlots(TString files){
 	TH1D * z_njets_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_njets_highphi"))->Clone("z_njets_highphi");
 	TH1D * z_njets_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_njets_lowphi"))->Clone("z_njets_lowphi");
 
-	z_njets_highphi->Scale(z_njets_highphi->Integral());
-	z_njets_lowphi->Scale(z_njets_lowphi->Integral());
+	z_njets_highphi->Scale(1/z_njets_highphi->Integral());
+	z_njets_lowphi->Scale(1/z_njets_lowphi->Integral());
 
 	//cout<<__LINE__<<endl;
 
