@@ -627,7 +627,7 @@ void processSample(TString sample){
 
 	//Write Latex Table----------------------------------------------------------------------------
 	cout<<"LATEX Tight Window:"<<endl;
-	cout<<"EFF: \\begin{tabular}{ l | l | l | l | l | l | l } \\hline ";
+	cout<<"EFF: \\begin{tabular}{ l | l | l | l | l } \\hline ";
 
 	cout<<"Mass Window [GeV] & TTbar & TTBar Relative Efficiency & Drell-Yan & Drell-Yan Relative Efficiency \\\\ \\hline"<<endl;
 	//loose
