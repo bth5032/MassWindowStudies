@@ -426,6 +426,9 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
+	z_dht_highphi->Scale(1/z_dht_highphi->Integral());
+	z_dht_lowphi->Scale(1/z_dht_lowphi->Integral());
+
 	z_dht_lowphi->SetLineColor(9);
 	z_dht_lowphi->SetLineWidth(6);
 	z_dht_lowphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
