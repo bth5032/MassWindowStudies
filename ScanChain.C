@@ -1,4 +1,4 @@
- Usage:
+//Usage:
 // > root -b doAll.C
 
 //
