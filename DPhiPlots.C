@@ -113,12 +113,14 @@ void DPhiPlots(TString files){
 	z_leading_lepmet->SetFillColor(46);
 	z_subleading_lepmet->SetLineColor(9);
 	z_subleading_lepmet->SetFillColor(9);
+
 //===============================
 //Draw Plots
 //===============================
-	//------------------
-	// MET Distributions
-	//------------------
+	
+//------------------
+// MET Distributions
+//------------------
 
 	TCanvas * met = new TCanvas("canvas_met", "", 2000, 2000);
 
@@ -141,9 +143,9 @@ void DPhiPlots(TString files){
 	
 	met->SaveAs(output_dir+"met.png");
 
-	//------------------
-	// Delta Phi TTBar
-	//------------------
+//------------------
+// Delta Phi TTBar
+//------------------
 
 	TCanvas *ctt_lowMET = new TCanvas("tt_lowMET", "", 2000, 2000);
 	ctt_lowMET->cd();
@@ -205,9 +207,9 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
-	//------------------
-	// Delta Phi Z
-	//------------------
+//------------------
+// Delta Phi Z
+//------------------
 
 	TCanvas *cz_lowMET = new TCanvas("z_lowMET", "", 2000, 2000);
 	cz_lowMET->cd();
@@ -269,10 +271,9 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
-
-	//------------------
-	// DPhi Lep/MET
-	//------------------
+//------------------
+// DPhi Lep/MET
+//------------------
 
 	TCanvas *c_z_lepmet = new TCanvas("c_z_lepmet", "", 2000, 2000);
 	c_z_lepmet->Divide(1,2);
@@ -285,7 +286,7 @@ void DPhiPlots(TString files){
 	z_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z Events");
 	z_leading_lepmet->Draw("HIST");
 	c_z_lepmet->cd(2);
-	z_subleading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z Events");
+	z_subleading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z Events");
 	z_subleading_lepmet->Draw("HIST");
 
 
@@ -311,9 +312,59 @@ void DPhiPlots(TString files){
 	c_tt_lepmet->cd();
 	c_tt_lepmet->SaveAs(output_dir+"tt_lepmet_met50.png");
 
-//==============
+//------------------
+// DPhi Lep/MET ee/mm
+//------------------
+
+	TH1D * z_leading_lepmet_ee = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_leading_lep_met_ee"))->Clone("z_leading_lepmet_ee");
+	TH1D * z_subleading_lepmet_ee = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_subleading_lep_met_ee"))->Clone("z_subleading_lepmet_ee");
+
+	TCanvas *c_z_lepmet_ee = new TCanvas("c_z_lepmet_ee", "", 2000, 2000);
+	c_z_lepmet_ee->Divide(1,2);
+
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	c_z_lepmet_ee->cd(1);
+	z_leading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow e #bar{e} Events");
+	z_leading_lepmet->Draw("HIST");
+	c_z_lepmet_ee->cd(2);
+	z_subleading_lepmet->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow e #bar{e} Events");
+	z_subleading_lepmet->Draw("HIST");
+
+	c_z_lepmet_ee->cd();
+	c_z_lepmet_ee->SaveAs(output_dir+"z_lepmet_met50_ee.png");
+	
+	//------------
+	//Mu Mu
+	//------------
+	
+	TH1D * z_leading_lepmet_mm = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_leading_lep_met_mm"))->Clone("z_leading_lepmet_mm");
+	TH1D * z_subleading_lepmet_mm = (TH1D*) ((TH1D*) z_file->Get("zjets_DeltaPhi_subleading_lep_met_mm"))->Clone("z_subleading_lepmet_mm");
+
+	TCanvas *c_z_lepmet_mm = new TCanvas("c_z_lepmet_mm", "", 2000, 2000);
+	c_z_lepmet_mm->Divide(1,2);
+
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	c_z_lepmet_mm->cd(1);
+	z_leading_lepmet_mm->SetTitle("#Delta#Phi(E^{miss}_{T}, leading lepton) for Z #rightarrow #mu #bar{#mu} Events");
+	z_leading_lepmet_mm->Draw("HIST");
+
+	c_z_lepmet_mm->cd(2);
+	z_subleading_lepmet_mm->SetTitle("#Delta#Phi(E^{miss}_{T}, subleading lepton) for Z #rightarrow #mu #bar{#mu} Events");
+	z_subleading_lepmet_mm->Draw("HIST");
+
+
+	c_z_lepmet_mm->cd();
+	c_z_lepmet_mm->SaveAs(output_dir+"z_lepmet_met50_mm.png");
+
+//------------------
 // HT Checking
-//==============
+//------------------
 
 	TCanvas *c_Ht_check = new TCanvas("c_Ht_check", "", 2000, 2000);
 
@@ -366,10 +417,10 @@ void DPhiPlots(TString files){
 	c_Dht->cd(1);
 	z_dht_lowphi->SetLineColor(9);
 	z_dht_lowphi->SetFillColor(9);
-	z_dht_lowphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
-	z_dht_lowphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
+	z_dht_lowphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #leq 1");
+	z_dht_lowphi->SetXTitle("#frac{Gen Level H_{T} - Measured H_{T}}{Gen Level H_{T}}");
 	z_dht_lowphi->SetYTitle("Events / 1 GeV");
-	z_dht_lowphi->SetAxisRange(-300,300);
+	z_dht_lowphi->SetAxisRange(-1,1);
 	z_dht_lowphi->Draw("HIST");
 
 	c_Dht->cd(2);
@@ -377,27 +428,118 @@ void DPhiPlots(TString files){
 	z_dht_highphi->SetFillColor(46);
 	z_dht_highphi->SetXTitle("Gen Level H_{T} - Measured H_{T}");
 	z_dht_highphi->SetYTitle("Events / 1 GeV");
-	z_dht_highphi->SetTitle("Gen Level H_{T} - Measured H_{T} for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
-	z_dht_highphi->SetAxisRange(-300,300);
+	z_dht_highphi->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton) #geq 2");
+	z_dht_highphi->SetAxisRange(-1,1);
 	z_dht_highphi->Draw("HIST");
 
 
 	c_Dht->cd();
 	c_Dht->SaveAs(output_dir+"Z_Dht_met50.png");
 
+//------------------
+// nVert Check
+//------------------
+
+	TCanvas *c_nvert_check = new TCanvas("c_nvert_check", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_nvert_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_nVert_highphi"))->Clone("zjets_nVert_highphi");
+	TH1D * z_nvert_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_nVert_lowphi"))->Clone("zjets_nVert_lowphi");
+
+	//cout<<__LINE__<<endl;
 
 
-met->~TCanvas();
-cz_lowMET->~TCanvas();
-cz_HighMET->~TCanvas();
-ctt_lowMET->~TCanvas();
-ctt_HighMET->~TCanvas();
+	z_nvert_highphi->SetLineColor(9);
+	z_nvert_highphi->SetLineWidth(6);
+	z_nvert_highphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_nvert_highphi->SetXTitle("Number of Vertcies");
+	z_nvert_highphi->SetYTitle("Count");
+	z_nvert_highphi->SetAxisRange(0,50);
+	z_nvert_highphi->Draw("HIST");
 
-c_tt_lepmet->~TCanvas();
-c_z_lepmet->~TCanvas();
+	z_nvert_lowphi->SetLineColor(46);
+	z_nvert_lowphi->SetLineWidth(6);
+	z_nvert_lowphi->Draw("HIST SAME");
+	
+	TLegend *l_nvert;
+	l_nvert = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_nvert->SetLineColor(kWhite);  
+	l_nvert->SetShadowColor(kWhite);
+	l_nvert->SetFillColor(kWhite);
+	l_nvert->AddEntry(z_nvert_highphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #geq 2", "f");
+	l_nvert->AddEntry(z_nvert_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 2", "f");
+	  
+	l_nvert->Draw("same");
 
-c_Ht_check->~TCanvas();
-c_Dht->~TCanvas();
+	//Delta HT
+
+	c_nvert_check->cd();
+	c_nvert_check->SaveAs(output_dir+"nvert.png");
+
+//------------------
+// njets Check
+//------------------
+
+	TCanvas *c_njets_check = new TCanvas("c_njets_check", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_njets_highphi = (TH1D*) ((TH1D*) z_file->Get("z_njets_highphi"))->Clone("z_njets_highphi");
+	TH1D * z_njets_lowphi = (TH1D*) ((TH1D*) z_file->Get("z_njets_lowphi"))->Clone("z_njets_lowphi");
+
+	//cout<<__LINE__<<endl;
+
+
+	z_njets_highphi->SetLineColor(9);
+	z_njets_highphi->SetLineWidth(6);
+	z_njets_highphi->SetTitle("Number of Vertcies in Head and Tail of #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_njets_highphi->SetXTitle("Number of Jets");
+	z_njets_highphi->SetYTitle("Count");
+	z_njets_highphi->SetAxisRange(0,7);
+	z_njets_highphi->Draw("HIST");
+
+	z_njets_lowphi->SetLineColor(46);
+	z_njets_lowphi->SetLineWidth(6);
+	z_njets_lowphi->Draw("HIST SAME");
+	
+	TLegend *l_njets;
+	l_njets = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_njets->SetLineColor(kWhite);  
+	l_njets->SetShadowColor(kWhite);
+	l_njets->SetFillColor(kWhite);
+	l_njets->AddEntry(z_njets_highphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #geq 2", "f");
+	l_njets->AddEntry(z_njets_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 2", "f");
+	  
+	l_njets->Draw("same");
+
+	//Delta HT
+
+	c_njets_check->cd();
+	c_njets_check->SaveAs(output_dir+"nvert.png");
+
+
+	met->~TCanvas();
+	cz_lowMET->~TCanvas();
+	cz_HighMET->~TCanvas();
+	ctt_lowMET->~TCanvas();
+	ctt_HighMET->~TCanvas();
+
+	c_tt_lepmet->~TCanvas();
+	c_z_lepmet->~TCanvas();
+
+	c_z_lepmet_ee->~TCanvas();
+	c_z_lepmet_mm->~TCanvas();
+
+	c_Ht_check->~TCanvas();
+	c_Dht->~TCanvas();
+
+	c_nvert_check->~TCanvas();
+	c_njets_check->~TCanvas();
 
 }
 

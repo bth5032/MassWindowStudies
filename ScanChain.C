@@ -1,4 +1,4 @@
-// Usage:
+ Usage:
 // > root -b doAll.C
 
 //
@@ -890,7 +890,6 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_lep_met_100_150->SetDirectory(rootdir);
   DeltaPhi_lep_met_100_150->Sumw2();
 
-
   TH1D *DeltaPhi_lep_met_150_225 = new TH1D(sampleName+"_DeltaPhi_lep_met_150_225", "#Delta#Phi(E^{miss}_T, ll) for E^{miss}_{T} #in [150,225)"+sampleName, 100,0,3.15);
   DeltaPhi_lep_met_150_225->SetDirectory(rootdir);
   DeltaPhi_lep_met_150_225->Sumw2();
@@ -903,6 +902,22 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_lep_met_300->SetDirectory(rootdir);
   DeltaPhi_lep_met_300->Sumw2();
 
+  TH1D *DeltaPhi_leading_lep_met_ee = new TH1D(sampleName+"_DeltaPhi_leading_lep_met_ee", "#Delta#Phi(E^{miss}_{T}, leading electron)"+sampleName, 100,0,3.15);
+  DeltaPhi_leading_lep_met_ee->SetDirectory(rootdir);
+  DeltaPhi_leading_lep_met_ee->Sumw2();
+
+  TH1D *DeltaPhi_subleading_lep_met_ee = new TH1D(sampleName+"_DeltaPhi_subleading_lep_met_ee", "#Delta#Phi(E^{miss}_{T}, subleading electron)"+sampleName, 100,0,3.15);
+  DeltaPhi_subleading_lep_met_ee->SetDirectory(rootdir);
+  DeltaPhi_subleading_lep_met_ee->Sumw2();
+
+  TH1D *DeltaPhi_leading_lep_met_mm = new TH1D(sampleName+"_DeltaPhi_leading_lep_met_mm", "#Delta#Phi(E^{miss}_{T}, leading muon)"+sampleName, 100,0,3.15);
+  DeltaPhi_leading_lep_met_mm->SetDirectory(rootdir);
+  DeltaPhi_leading_lep_met_mm->Sumw2();
+
+  TH1D *DeltaPhi_subleading_lep_met_mm = new TH1D(sampleName+"_DeltaPhi_subleading_lep_met_mm", "#Delta#Phi(E^{miss}_{T}, subleading muon)"+sampleName, 100,0,3.15);
+  DeltaPhi_subleading_lep_met_mm->SetDirectory(rootdir);
+  DeltaPhi_subleading_lep_met_mm->Sumw2();
+
   TH1D *DeltaPhi_leading_lep_met = new TH1D(sampleName+"_DeltaPhi_leading_lep_met", "#Delta#Phi(E^{miss}_{T}, leading lepton)"+sampleName, 100,0,3.15);
   DeltaPhi_leading_lep_met->SetDirectory(rootdir);
   DeltaPhi_leading_lep_met->Sumw2();
@@ -911,11 +926,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_subleading_lep_met->SetDirectory(rootdir);
   DeltaPhi_subleading_lep_met->Sumw2();
 
-  TH1D *Dht_lowphi = new TH1D(sampleName+"_Dht_lowphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 2000,-1000,1000);
+  TH1D *Dht_lowphi = new TH1D(sampleName+"_Dht_lowphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 100,-1,1);
   Dht_lowphi->SetDirectory(rootdir);
   Dht_lowphi->Sumw2();
 
-  TH1D *Dht_highphi = new TH1D(sampleName+"_Dht_highphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 2000,-1000,1000);
+  TH1D *Dht_highphi = new TH1D(sampleName+"_Dht_highphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 100,-1,1);
   Dht_highphi->SetDirectory(rootdir);
   Dht_highphi->Sumw2();
 
@@ -935,6 +950,14 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   TH1D *nVert = new TH1D(sampleName+"_nVert", "Number of verticies in "+sampleName, 150,0,150);
   nVert->SetDirectory(rootdir);
   nVert->Sumw2();
+
+  TH1D *nVert_lowphi = new TH1D(sampleName+"_nVert_lowphi", "Number of verticies for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 150,0,150);
+  nVert_lowphi->SetDirectory(rootdir);
+  nVert_lowphi->Sumw2();
+
+  TH1D *nVert_highphi = new TH1D(sampleName+"_nVert_highphi", "Number of verticies for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 150,0,150);
+  nVert_highphi->SetDirectory(rootdir);
+  nVert_highphi->Sumw2();
 
   TH1D *rawmet = new TH1D(sampleName+"_rawMET", "Raw MET for "+sampleName, 6000,0,6000);
   rawmet->SetDirectory(rootdir);
@@ -1022,6 +1045,14 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   TH1D *njets = new TH1D(sampleName+"_njets", "Number of jets for events in "+sampleName, 50,0,50);
   njets->SetDirectory(rootdir);
   njets->Sumw2();
+
+  TH1D *njets_lowphi = new TH1D(sampleName+"_njets_lowphi", "Number of jets for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 50,0,50);
+  njets_lowphi->SetDirectory(rootdir);
+  njets_lowphi->Sumw2();
+
+  TH1D *njets_highphi = new TH1D(sampleName+"_njets_highphi", "Number of jets for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2 ", 50,0,50);
+  njets_highphi->SetDirectory(rootdir);
+  njets_highphi->Sumw2();
 
   TH1D *nbtags_m = new TH1D(sampleName+"_nbtags_m", "Number of \"medium\" B-tagged jets for events in "+sampleName, 50,0,50);
   nbtags_m->SetDirectory(rootdir);
@@ -1271,14 +1302,27 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       }
 
       if (phys.met_T1CHS_miniAOD_CORE_pt() >= 50) {
+        if(phys.hyp_type() == 0){
+          //di-electron
+          DeltaPhi_leading_lep_met_ee->Fill(dphi_llep_met, weight);
+          DeltaPhi_subleading_lep_met_ee->Fill(dphi_slep_met, weight);
+        }
+        else if {
+          DeltaPhi_leading_lep_met_mm->Fill(dphi_llep_met, weight);
+          DeltaPhi_subleading_lep_met_mm->Fill(dphi_slep_met, weight);  
+        }
         DeltaPhi_leading_lep_met->Fill(dphi_llep_met, weight);
         DeltaPhi_subleading_lep_met->Fill(dphi_slep_met, weight);
 
         if (dphi_lep_met <= 1){
-          Dht_lowphi->Fill(phys.gen_ht() - phys.ht());
+          Dht_lowphi->Fill((phys.gen_ht() - phys.ht())/phys.gen_ht());
+          njets_lowphi->Fill(phys.njets());
+          nVert_lowphi->Fill(phys.nVert());
         }
         else if (dphi_lep_met >= 2){
-          Dht_highphi->Fill(phys.gen_ht() - phys.ht());
+          Dht_highphi->Fill((phys.gen_ht() - phys.ht())/phys.gen_ht());
+          njets_highphi->Fill(phys.njets());
+          nVert_highphi->Fill(phys.nVert());
         }
       }
 
@@ -1324,6 +1368,18 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   gen_ht->Write();
   //cout<<__LINE__<<endl;
+  nVert->Write();
+  //cout<<__LINE__<<endl;
+  nVert_highphi->Write();
+  //cout<<__LINE__<<endl;
+  nVert_lowphi->Write();
+  //cout<<__LINE__<<endl;
+  njets->Write();
+  //cout<<__LINE__<<endl;
+  njets_highphi->Write();
+  //cout<<__LINE__<<endl;
+  njets_lowphi->Write();
+  //cout<<__LINE__<<endl;
   t1met->Write();
   //cout<<__LINE__<<endl;
   t1met_widebin->Write();
@@ -1347,6 +1403,14 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_leading_lep_met->Write();
   //cout<<__LINE__<<endl;
   DeltaPhi_subleading_lep_met->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_leading_lep_met_ee->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_subleading_lep_met_ee->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_leading_lep_met_mm->Write();
+  //cout<<__LINE__<<endl;
+  DeltaPhi_subleading_lep_met_mm->Write();
   //cout<<__LINE__<<endl;
 
   //close output file
