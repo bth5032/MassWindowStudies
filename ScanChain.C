@@ -1420,6 +1420,10 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   Dht_highphi_unscaled->Write();
   //cout<<__LINE__<<endl;
+  Dht_MET_lowphi->Write();
+  //cout<<__LINE__<<endl;
+  Dht_MET_highphi->Write();
+  //cout<<__LINE__<<endl;
 
   DeltaPhi_lep_met_0_50->Write();
   //cout<<__LINE__<<endl;
