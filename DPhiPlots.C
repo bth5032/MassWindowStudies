@@ -554,6 +554,46 @@ void DPhiPlots(TString files){
 	c_njets_check->cd();
 	c_njets_check->SaveAs(output_dir+"njets.png");
 
+//------------------
+// Δ(HT,MET) Checking
+//------------------
+
+	TCanvas *c_D_Ht_MET = new TCanvas("c_D_Ht_MET", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_dht_MET_lowphi = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_MET_lowphi"))->Clone("z_dht_MET_lowphi");
+	TH1D * z_dht_MET_highphi = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_MET_highphi"))->Clone("z_dht_MET_highphi");
+
+	//cout<<__LINE__<<endl;
+
+
+	z_dht_MET_lowphi->SetLineColor(9);
+	z_dht_MET_lowphi->SetLineWidth(6);
+	z_dht_MET_lowphi->SetTitle("Gen Level H_{T} - Measured H_{T} #pm E^{miss}_{T} for Z Events");
+	z_dht_MET_lowphi->SetAxisRange(0,1000);
+	z_dht_MET_lowphi->Draw("HIST");
+
+	z_dht_MET_highphi->SetLineColor(46);
+	z_dht_MET_highphi->SetLineWidth(6);
+	z_dht_MET_highphi->Draw("HIST SAME");
+	
+	TLegend *l_Dht_MET;
+	l_Dht_MET = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_Dht_MET->SetLineColor(kWhite);  
+	l_Dht_MET->SetShadowColor(kWhite);
+	l_Dht_MET->SetFillColor(kWhite);
+	l_Dht_MET->AddEntry(z_dht_MET_lowphi, "Z aligned with E^{miss}_{T}", "f");
+	l_Dht_MET->AddEntry(z_dht_MET_highphi, "Z anti-aligned with E^{miss}_{T}", "f");
+	  
+	l_Dht_MET->Draw("same");
+
+	//Delta HT
+
+	c_D_Ht_MET->cd();
+	c_D_Ht_MET->SaveAs(output_dir+"D_HT_MET.png");
 
 	met->~TCanvas();
 	cz_lowMET->~TCanvas();

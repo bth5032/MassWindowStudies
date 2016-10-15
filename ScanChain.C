@@ -926,13 +926,29 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   DeltaPhi_subleading_lep_met->SetDirectory(rootdir);
   DeltaPhi_subleading_lep_met->Sumw2();
 
-  TH1D *Dht_lowphi = new TH1D(sampleName+"_Dht_lowphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 100,-1,1);
+  TH1D *Dht_lowphi = new TH1D(sampleName+"_Dht_lowphi", "Gen H_{T} - H_{T}/Gen H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 100,-1,1);
   Dht_lowphi->SetDirectory(rootdir);
   Dht_lowphi->Sumw2();
 
-  TH1D *Dht_highphi = new TH1D(sampleName+"_Dht_highphi", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 100,-1,1);
+  TH1D *Dht_highphi = new TH1D(sampleName+"_Dht_highphi", "Gen H_{T} - H_{T}/Gen H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 100,-1,1);
   Dht_highphi->SetDirectory(rootdir);
   Dht_highphi->Sumw2();
+
+  TH1D *Dht_MET_lowphi = new TH1D(sampleName+"_Dht_MET_lowphi", "Gen H_{T} - H_{T} + E^{miss}_T for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 100,-1,1);
+  Dht_MET_lowphi->SetDirectory(rootdir);
+  Dht_MET_lowphi->Sumw2();
+
+  TH1D *Dht_MET_highphi = new TH1D(sampleName+"_Dht_MET_highphi", "Gen H_{T} - H_{T} - E^{miss}_T for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 100,-1,1);
+  Dht_MET_highphi->SetDirectory(rootdir);
+  Dht_MET_highphi->Sumw2();
+
+  TH1D *Dht_lowphi_unscaled = new TH1D(sampleName+"_Dht_lowphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 100,-1,1);
+  Dht_lowphi_unscaled->SetDirectory(rootdir);
+  Dht_lowphi_unscaled->Sumw2();
+
+  TH1D *Dht_highphi_unscaled = new TH1D(sampleName+"_Dht_highphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 100,-1,1);
+  Dht_highphi_unscaled->SetDirectory(rootdir);
+  Dht_highphi_unscaled->Sumw2();
 
   //MET Histos
   TH1D *t1met = new TH1D(sampleName+"_type1MET", "Type 1 MET for "+sampleName, 6000,0,6000);
@@ -1326,6 +1342,17 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
         }
       }
 
+      if (phys.met_T1CHS_miniAOD_CORE_pt() >=50 && phys.met_T1CHS_miniAOD_CORE_pt() <=100){
+        if (dphi_lep_met <= 1){
+          Dht_lowphi_unscaled->Fill((phys.gen_ht() - phys.ht()), weight);
+          Dht_MET_lowphi->Fill((phys.gen_ht() - phys.ht()) - phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+        }
+        else if (dphi_lep_met >= 2){
+          Dht_highphi_unscaled->Fill((phys.gen_ht() - phys.ht()), weight);
+          Dht_MET_highphi->Fill((phys.gen_ht() - phys.ht()) + phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+        }
+      }
+
       nVert->Fill(phys.nVert(), weight);
       dilmass->Fill(phys.dilmass(), weight);
 
@@ -1388,6 +1415,12 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   //cout<<__LINE__<<endl;
   Dht_highphi->Write();
   //cout<<__LINE__<<endl;
+
+  Dht_lowphi_unscaled->Write();
+  //cout<<__LINE__<<endl;
+  Dht_highphi_unscaled->Write();
+  //cout<<__LINE__<<endl;
+
   DeltaPhi_lep_met_0_50->Write();
   //cout<<__LINE__<<endl;
   DeltaPhi_lep_met_50_100->Write();
