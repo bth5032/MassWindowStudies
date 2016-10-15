@@ -568,11 +568,13 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
+	if (z_dht_MET_lowphi->GetMaximum() < z_dht_MET_highphi->GetMaximum()){
+		z_dht_MET_lowphi->SetMaximum(z_dht_MET_highphi->GetMaximum());
+	}
 
 	z_dht_MET_lowphi->SetLineColor(9);
 	z_dht_MET_lowphi->SetLineWidth(6);
 	z_dht_MET_lowphi->SetTitle("Gen Level H_{T} - Measured H_{T} #pm E^{miss}_{T} for Z Events");
-	z_dht_MET_lowphi->SetAxisRange(0,1000);
 	z_dht_MET_lowphi->Draw("HIST");
 
 	z_dht_MET_highphi->SetLineColor(46);
