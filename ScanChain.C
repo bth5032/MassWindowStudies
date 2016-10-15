@@ -161,11 +161,11 @@ bool passBaseCut(){
     //if (printFail) cout<<phys.evt()<<" :Failed golden JSON cut"<<endl;
     numEvents->Fill(8);
   } */
-  if (! (phys.njets() >= 2) ){ 
+  /*if (! (phys.njets() >= 2) ){ 
     pass=false; //2 jet cut
     //if (printFail) cout<<phys.evt()<<" :Failed 2 Jets cut"<<endl;
     numEvents->Fill(9);
-  }
+  }*/
 
   //if (printPass) cout<<phys.evt()<<": Passes Base Cuts"<<endl;
   return pass;
