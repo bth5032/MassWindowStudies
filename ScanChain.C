@@ -942,11 +942,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
   Dht_MET_highphi->SetDirectory(rootdir);
   Dht_MET_highphi->Sumw2();
 
-  TH1D *Dht_lowphi_unscaled = new TH1D(sampleName+"_Dht_lowphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 600,-300,300);
+  TH1D *Dht_lowphi_unscaled = new TH1D(sampleName+"_Dht_lowphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #leq 1", 400,-200,200);
   Dht_lowphi_unscaled->SetDirectory(rootdir);
   Dht_lowphi_unscaled->Sumw2();
 
-  TH1D *Dht_highphi_unscaled = new TH1D(sampleName+"_Dht_highphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 600,-300,300);
+  TH1D *Dht_highphi_unscaled = new TH1D(sampleName+"_Dht_highphi_unscaled", "Gen H_{T} - H_{T} for events with #Delta#Phi(E^{miss}_T, dilepton) #geq 2", 400,-200,200);
   Dht_highphi_unscaled->SetDirectory(rootdir);
   Dht_highphi_unscaled->Sumw2();
 
