@@ -462,6 +462,85 @@ void DPhiPlots(TString files){
 	c_Dht->cd();
 	c_Dht->SaveAs(output_dir+"Z_Dht_met50.png");
 
+		TCanvas *c_Ht_check = new TCanvas("c_Ht_check", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_genht = (TH1D*) ((TH1D*) z_file->Get("zjets_genht"))->Clone("z_genht");
+	TH1D * z_ht = (TH1D*) ((TH1D*) z_file->Get("zjets_ht"))->Clone("z_ht");
+
+	//cout<<__LINE__<<endl;
+
+
+	z_ht->SetLineColor(9);
+	z_ht->SetLineWidth(6);
+	z_ht->SetTitle("Gen Level H_{T} Vs. Measured H_{T} for Z Events");
+	z_ht->SetAxisRange(0,1000);
+	z_ht->Draw("HIST");
+
+	z_genht->SetLineColor(46);
+	z_genht->SetLineWidth(6);
+	z_genht->Draw("HIST SAME");
+	
+	TLegend *l_ht;
+	l_ht = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_ht->SetLineColor(kWhite);  
+	l_ht->SetShadowColor(kWhite);
+	l_ht->SetFillColor(kWhite);
+	l_ht->AddEntry(z_genht, "Gen Level H_{T}", "f");
+	l_ht->AddEntry(z_ht, "Measured H_{T}", "f");
+	  
+	l_ht->Draw("same");
+
+	//Delta HT
+
+	c_Ht_check->cd();
+	c_Ht_check->SaveAs(output_dir+"Ht_check.png");
+
+	TCanvas *c_Dht_unscaled = new TCanvas("c_Dht_unscaled", "", 2000, 2000);
+
+	gPad->SetLogy(0);
+	gStyle->SetOptStat(kFALSE);
+
+	TH1D * z_dht_lowphi_unscaled = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_lowphi_unscaled"))->Clone("z_dht_lowphi_unscaled");
+	TH1D * z_dht_highphi_unscaled = (TH1D*) ((TH1D*) z_file->Get("zjets_Dht_highphi_unscaled"))->Clone("z_dht_highphi_unscaled");
+
+	//cout<<__LINE__<<endl;
+
+	z_dht_highphi_unscaled->Scale(1/z_dht_highphi->Integral());
+	z_dht_lowphi_unscaled->Scale(1/z_dht_lowphi->Integral());
+
+	z_dht_lowphi_unscaled->SetLineColor(9);
+	z_dht_lowphi_unscaled->SetLineWidth(6);
+	z_dht_lowphi_unscaled->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_dht_lowphi_unscaled->SetXTitle("(Gen H_{T} - Reco H_{T})/Gen H_{T}");
+	//z_dht_lowphi->SetYTitle("Events");
+	z_dht_lowphi_unscaled->SetAxisRange(-1,1);
+	z_dht_lowphi_unscaled->Draw("HIST");
+
+	z_dht_highphi_unscaled->SetLineColor(46);
+	z_dht_highphi_unscaled->SetLineWidth(6);
+	//z_dht_highphi->SetYTitle("Events");
+	z_dht_highphi_unscaled->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_dht_highphi_unscaled->SetAxisRange(-1,1);
+	z_dht_highphi_unscaled->Draw("HIST SAME");
+
+	TLegend *l_Dht_unscaled;
+	l_Dht_unscaled = new TLegend(0.73, 0.73, 0.88, 0.88);
+	  
+	l_Dht_unscaled->SetLineColor(kWhite);  
+	l_Dht_unscaled->SetShadowColor(kWhite);
+	l_Dht_unscaled->SetFillColor(kWhite);
+	l_Dht_unscaled->AddEntry(z_dht_lowphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #leq 1", "f");
+	l_Dht_unscaled->AddEntry(z_dht_highphi, "#Delta#Phi(E^{miss}_{T}, dilepton) #geq 2", "f");
+	  
+	l_Dht_unscaled->Draw("same");
+
+	c_Dht_unscaled->cd();
+	c_Dht_unscaled->SaveAs(output_dir+"Z_Dht_met50_unscaled.png");
+
 //------------------
 // nVert Check
 //------------------
