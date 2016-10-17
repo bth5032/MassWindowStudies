@@ -1345,11 +1345,11 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       if (phys.met_T1CHS_miniAOD_CORE_pt() >=50 && phys.met_T1CHS_miniAOD_CORE_pt() <=100){
         if (dphi_lep_met <= 1){
           Dht_lowphi_unscaled->Fill((phys.gen_ht() - phys.ht()), weight);
-          Dht_MET_lowphi->Fill((phys.gen_ht() - phys.ht()) - phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+          Dht_MET_lowphi->Fill((phys.gen_ht() - phys.ht()) + phys.met_T1CHS_miniAOD_CORE_pt(), weight);
         }
         else if (dphi_lep_met >= 2){
           Dht_highphi_unscaled->Fill((phys.gen_ht() - phys.ht()), weight);
-          Dht_MET_highphi->Fill((phys.gen_ht() - phys.ht()) + phys.met_T1CHS_miniAOD_CORE_pt(), weight);
+          Dht_MET_highphi->Fill((phys.gen_ht() - phys.ht()) - phys.met_T1CHS_miniAOD_CORE_pt(), weight);
         }
       }
 
