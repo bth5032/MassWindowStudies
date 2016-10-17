@@ -476,8 +476,12 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
-	z_dht_highphi_unscaled->Scale(1/z_dht_highphi_unscaled->Integral());
-	z_dht_lowphi_unscaled->Scale(1/z_dht_lowphi_unscaled->Integral());
+	//z_dht_highphi_unscaled->Scale(1/z_dht_highphi_unscaled->Integral());
+	//z_dht_lowphi_unscaled->Scale(1/z_dht_lowphi_unscaled->Integral());
+
+	if (z_dht_lowphi_unscaled->GetMaximum() < z_dht_highphi_unscaled->GetMaximum()){
+		z_dht_lowphi_unscaled->SetMaximum(z_dht_highphi_unscaled->GetMaximum());
+	}
 
 	z_dht_lowphi_unscaled->SetLineColor(9);
 	z_dht_lowphi_unscaled->SetLineWidth(6);
