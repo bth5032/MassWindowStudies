@@ -476,12 +476,12 @@ void DPhiPlots(TString files){
 
 	//cout<<__LINE__<<endl;
 
-	//z_dht_highphi_unscaled->Scale(1/z_dht_highphi_unscaled->Integral());
-	//z_dht_lowphi_unscaled->Scale(1/z_dht_lowphi_unscaled->Integral());
+	z_dht_highphi_unscaled->Scale(1/z_dht_highphi_unscaled->Integral());
+	z_dht_lowphi_unscaled->Scale(1/z_dht_lowphi_unscaled->Integral());
 
 	z_dht_lowphi_unscaled->SetLineColor(9);
 	z_dht_lowphi_unscaled->SetLineWidth(6);
-	z_dht_lowphi_unscaled->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
+	z_dht_lowphi_unscaled->SetTitle("Gen H_{T} - Reco H_{T} for Z Events");
 	z_dht_lowphi_unscaled->SetXTitle("(Gen H_{T} - Reco H_{T})");
 	//z_dht_lowphi->SetYTitle("Events");
 	z_dht_lowphi_unscaled->SetAxisRange(-201,201);
@@ -490,7 +490,6 @@ void DPhiPlots(TString files){
 	z_dht_highphi_unscaled->SetLineColor(46);
 	z_dht_highphi_unscaled->SetLineWidth(6);
 	//z_dht_highphi->SetYTitle("Events");
-	z_dht_highphi_unscaled->SetTitle("Percent Gen H_{T} reconstructed for Z Events with #Delta#Phi(E^{miss}_{T}, dilepton)");
 	//z_dht_highphi_unscaled->SetAxisRange(-300,300);
 	z_dht_highphi_unscaled->Draw("HIST SAME");
 
