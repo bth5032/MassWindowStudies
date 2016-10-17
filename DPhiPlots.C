@@ -21,12 +21,40 @@ void DPhiPlots(TString files){
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/";
 	}
 	else if (files.Contains("monojet") && files.Contains("zjcut")){
-		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/withDPhiJetZ/";
-		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/withDPhiJetZ/";	
+		if (files.Contains("vpt100")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt100/withDPhiJetZ/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt100/withDPhiJetZ/";	
+		}
+		else if (files.Contains("vpt150")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt150/withDPhiJetZ/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt150/withDPhiJetZ/";	
+		}
+		else if (files.Contains("vpt200")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt200/withDPhiJetZ/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt200/withDPhiJetZ/";	
+		}
+		else{
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/withDPhiJetZ/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/withDPhiJetZ/";
+		}
 	}
 	else if (files.Contains("monojet")){
-		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/";
-		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/";	
+		if (files.Contains("vpt100")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt100/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt100/";	
+		}
+		else if (files.Contains("vpt150")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt150/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt150/";	
+		}
+		else if (files.Contains("vpt200")){
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet_vpt200/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet_vpt200/";	
+		}
+		else{
+			dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/";
+			output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/";	
+		}
 	}
 	else{
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudies/";
