@@ -20,6 +20,10 @@ void DPhiPlots(TString files){
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/";
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/";
 	}
+	else if (files.Contains("monojet") && files.Contains("zjcut")){
+		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/withDPhiJetZ/";
+		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/withDPhiJetZ/";	
+	}
 	else if (files.Contains("monojet")){
 		dir_loc = "/nfs-7/userdata/bobak/DPhiStudiesV2/monojet/";
 		output_dir = "/home/users/bhashemi/public_html/DPhiStudiesV2/monojet/";	
