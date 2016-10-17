@@ -1286,8 +1286,13 @@ int ScanChain( TChain* chain, TString sampleName, ConfigParser *configuration, b
       // Calculate lepton delta phi
       LorentzVector leptons = phys.lep_p4().at(0) + phys.lep_p4().at(1);
       double dphi_lep_met = acos(cos(leptons.phi() - phys.met_T1CHS_miniAOD_CORE_phi()));
-      double dphi_dilep_j1 = acos(cos(leptons.phi() - phys.jets_p4().at(0).phi()));
-      double dphi_dilep_j2 = acos(cos(leptons.phi() - phys.jets_p4().at(1).phi()));
+      
+      double dphi_dilep_j1 = 0;
+      if (phys.njets() >= 1) dphi_dilep_j1=acos(cos(leptons.phi() - phys.jets_p4().at(0).phi()));
+      
+      double dphi_dilep_j2 = 0;
+      if (phys.njets() >= 2) dphi_dilep_j2 = acos(cos(leptons.phi() - phys.jets_p4().at(1).phi()));
+      
       double dphi_llep_met = acos(cos(phys.lep_p4().at(0).phi() - phys.met_T1CHS_miniAOD_CORE_phi()));
       double dphi_slep_met = acos(cos(phys.lep_p4().at(1).phi() - phys.met_T1CHS_miniAOD_CORE_phi()));
       //Cuts for dPhi jets and Z
